@@ -43,12 +43,9 @@ const Register = () => {
           <nav id="navbar" className="navbar order-last order-lg-0">
             <ul>
               <li>
-                <a className="active" href="/">
+                <a className="active" href="/Home">
                   Home
                 </a>
-              </li>
-              <li>
-                <a href="/Profile">Profile</a>
               </li>
 
               <li className="dropdown">
@@ -96,15 +93,12 @@ const Register = () => {
                 </ul>
               </li>
               <li>
-                <a href="contact.html">Contact</a>
+                <a href="/Contact">Contact</a>
               </li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle" />
           </nav>
           {/* .navbar */}
-          <a href="courses.html" className="get-started-btn">
-            Get Started
-          </a>
         </div>
       
     </header>
@@ -112,7 +106,7 @@ const Register = () => {
 
 
 
-    <main id="main">
+    <main id="register" className="about">
       {/* ======= Breadcrumbs ======= */}
       <div className="breadcrumbs" >
         <div className="container">
@@ -137,36 +131,37 @@ const Register = () => {
  
 
             {/* inputs */}
-            <form className="flex flex-col items-center space-y-4">
-              <div >
+            <form className="php-email-form button">
+              <div  className=" form-group p-1">
                 
                 <input
-                  className="py-1 pr-4 placeholder-gray-400 transition border border-gray-300 rounded-md outline-none pl-9 focus:ring-2 focus:ring-blue-200"
+                  className="form-control "
                   placeholder="Full Name"
                   type="text"
                 />
               </div>
-              <div >
+              <div  className=" form-group p-1">
                 <input
-                  className="py-1 mt-2 placeholder-gray-400 transition border border-gray-300 rounded-md outline-none pl-9 focus:ring-2 focus:ring-blue-200"
+                  className="form-control"
                   placeholder="Email"
                   type="password"
                 />
               </div>
-              <div >
+              <div  className=" form-group p-1" >
                 <input
-                  className="py-1 mt-2 placeholder-gray-400 transition border border-gray-300 rounded-md outline-none pl-9 focus:ring-2 focus:ring-blue-200"
+                  className="form-control"
                   placeholder="Password"
                   type="password"
                 />
               </div>
+              <div className='text-center'>
               <button
                 className=" px-5 py-1 mt-2 "
-                
                 type="submit"
               >
                 Register
               </button>
+              </div>
             </form>
 
      

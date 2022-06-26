@@ -108,8 +108,8 @@ const Home = () => {
             <i className="bi bi-list mobile-nav-toggle" />
           </nav>
           {/* .navbar */}
-          <a href="/#features" className="get-started-btn">
-            Get Started
+          <a href="/Login" className="get-started-btn">
+            Login
           </a>
         </div>
       </header>

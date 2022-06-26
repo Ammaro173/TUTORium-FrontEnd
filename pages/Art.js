@@ -102,9 +102,7 @@ const Art = () => {
             <i className="bi bi-list mobile-nav-toggle" />
           </nav>
           {/* .navbar */}
-          <a href="/#features" className="get-started-btn">
-            Get Started
-          </a>
+          
         </div>
   </header>
   {/* End Header */}
