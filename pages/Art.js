@@ -172,7 +172,7 @@ const Art = () => {
               <div className="course-content">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h3>
-                  <a href="course-details.html">Course Name</a>
+                  <a target="_blank" href="/CourseDetails">Course Name</a>
                 </h3>
                   <p className="price">Price</p>
                 </div>

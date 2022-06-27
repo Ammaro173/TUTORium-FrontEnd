@@ -37,7 +37,7 @@ const Register = () => {
     <header id="header" className="fixed-top">
     <div className="container d-flex align-items-center">
           <h1 className="logo me-auto">
-            <a href="index.html">TUTORium</a>
+            <a href="/Home">TUTORium</a>
           </h1>
          
           <nav id="navbar" className="navbar order-last order-lg-0">
@@ -132,11 +132,20 @@ const Register = () => {
 
             {/* inputs */}
             <form className="php-email-form button">
+            <div  className=" form-group p-1">
+                
+                <input
+                  className="form-control "
+                  placeholder="First Name"
+                  type="text"
+                />
+              </div>
+
               <div  className=" form-group p-1">
                 
                 <input
                   className="form-control "
-                  placeholder="Full Name"
+                  placeholder="Last Name"
                   type="text"
                 />
               </div>
@@ -154,6 +163,14 @@ const Register = () => {
                   type="password"
                 />
               </div>
+
+             
+               <label className='p-1' id='tutorcheck'>
+                <input  type="checkbox" value={true}  />
+                   <span> </span>Register as Tutor</label>
+        
+
+
               <div className='text-center'>
               <button
                 className=" px-5 py-1 mt-2 "
