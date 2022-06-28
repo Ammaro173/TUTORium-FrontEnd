@@ -138,6 +138,10 @@ body {
     max-height: 40px;
   }
   
+
+  #profileform {
+   background-color: #87b3bd;
+  }
   /**
   * Get Startet Button 
   */
@@ -153,7 +157,7 @@ body {
     display: inline-block;
   }
   .get-started-btn:hover {
-    background: #149292;
+    background: #3c9999;
     color: #fff;
   }
   @media (max-width: 768px) {
@@ -256,6 +260,7 @@ body {
       left: -100%;
     }
   }
+
   
   /**
   * Mobile Navigation 
@@ -424,6 +429,45 @@ body {
     }
   }
   
+
+  #tutorcheck {
+    color: #2e9eb9;
+  }
+
+
+  #uploadfile {
+    background-color: #2e9eb9;
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    outline: None;
+  }
+  
+  .about .php-email-form label {
+    background: #2e9eb9;
+    border: 0;
+    padding: 10px 35px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .about .php-email-form label:hover {
+    background: #87b6c2;
+    cursor: pointer;
+  }
+  @-webkit-keyframes animate-loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   /*--------------------------------------------------------------
   # Sections General
   --------------------------------------------------------------*/

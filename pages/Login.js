@@ -44,7 +44,7 @@ const Login = () => {
       <header id="header" className="fixed-top">
         <div className="container d-flex align-items-center">
           <h1 className="logo me-auto">
-            <a href="index.html">TUTORium</a>
+            <a href="/Home">TUTORium</a>
           </h1>
 
           <nav id="navbar" className="navbar order-last order-lg-0">
@@ -158,7 +158,7 @@ const Login = () => {
                     <p>
                       Join Us Now
                       <Link href="/Register">
-                        <a className="m-1 text-blue-400 hover:underline">
+                        <a className="m-1 ">
                           Register here!
                         </a>
                       </Link>

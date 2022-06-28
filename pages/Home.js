@@ -115,11 +115,15 @@ const Home = () => {
       </header>
       {/* End Header */}
 
+
+
+
       {/* ======= Hero Section ======= */}
       <section
         id="hero"
         className="d-flex justify-content-center align-items-center"
       >
+        
         <div className="container position-relative" data-aos-delay={100}>
           <h1>
             Learning Today,
@@ -136,12 +140,15 @@ const Home = () => {
       </section>
       {/* End Hero */}
 
+
+
+
       <main id="main">
         {/* ======= About Section ======= */}
         <section id="about" className="about">
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 order-1 order-lg-2">
+              <div className="col-lg-6 order-1 order-lg-2 " id="imghome">
                 <img src="assets/img/about.jpg" className="img-fluid" alt="" />
               </div>
               <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
