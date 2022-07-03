@@ -3,6 +3,12 @@ import React from 'react'
 const Navbar = () => {
   return (
     <header id="header" className="fixed-top">
+      
+        <link
+        href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+        rel="stylesheet"
+      />
+
     <div className="container d-flex align-items-center">
       <h1 className="logo me-auto">
         <a href="/Home">TUTORium</a>
@@ -25,41 +31,41 @@ const Navbar = () => {
             </a>
             <ul>
               <li>
-                <a href="/Art">Arts and Crafts</a>
+                <a href="/Courses">Arts and Crafts</a>
               </li>
 
               <li>
-                <a href="#">Technology</a>
+                <a href="/Courses">Technology</a>
               </li>
               <li>
-                <a href="#">Health</a>
+                <a href="/Courses">Health</a>
               </li>
               <li>
-                <a href="#">Sports</a>
+                <a href="/Courses">Sports</a>
               </li>
               <li>
-                <a href="#">Sciences</a>
+                <a href="/Courses">Sciences</a>
               </li>
               <li>
-                <a href="#">Business</a>
+                <a href="/Courses">Business</a>
               </li>
               <li>
-                <a href="#">Languages</a>
+                <a href="/Courses">Languages</a>
               </li>
               <li>
-                <a href="#">Beauty</a>
+                <a href="/Courses">Beauty</a>
               </li>
               <li>
-                <a href="#">Cooking</a>
+                <a href="/Courses">Cooking</a>
               </li>
               <li>
-                <a href="#">Agriculture</a>
+                <a href="/Courses">Agriculture</a>
               </li>
               <li>
-                <a href="#">Music</a>
+                <a href="/Courses">Music</a>
               </li>
               <li>
-                <a href="#">Others</a>
+                <a href="/Courses">Others</a>
               </li>
             </ul>
           </li>

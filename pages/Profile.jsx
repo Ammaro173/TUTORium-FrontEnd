@@ -1,51 +1,24 @@
 import React from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import Footer from "./Footer";
-import Navbar from './Navbar';
-
-
+import Navbar from "./Navbar";
 
 const Profile = () => {
-
   return (
     <>
-      <meta charSet="utf-8" />
-      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-      <title>Mentor Bootstrap Template - Index</title>
-      <meta content="" name="description" />
-      <meta content="" name="keywords" />
-      <link href="assets/img/favicon.png" rel="icon" />
-      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
       <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet"/>
-      <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
-      <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+        rel="stylesheet"
+      />
+
       <link
         href="assets/vendor/bootstrap/css/bootstrap.min.css"
         rel="stylesheet"
       />
-      <link
-        href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-        rel="stylesheet"
-      />
-      <link
-        href="assets/vendor/boxicons/css/boxicons.min.css"
-        rel="stylesheet"
-      />
-      <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-      <link
-        href="assets/vendor/swiper/swiper-bundle.min.css"
-        rel="stylesheet"
-      />
+
       <link href="assets/css/style.css" rel="stylesheet" />
 
-
-
-
-
-      <Navbar/>
-
+      <Navbar />
 
       <section id="profileform" className="about">
         <form className="php-email-form">
@@ -62,12 +35,12 @@ const Profile = () => {
                   <span className="text-black-50">edogaru@mail.com.my</span>
                   <span>attached file here</span>
                   <Link href="/ProfileEdit">
-                  <button
-                    className="btn btn-primary profile-button"
-                    type="submit"
-                  >
-                    Edit Profile
-                  </button>
+                    <button
+                      className="btn btn-primary profile-button"
+                      type="submit"
+                    >
+                      Edit Profile
+                    </button>
                   </Link>
                   <span> </span>
                 </div>
@@ -81,24 +54,23 @@ const Profile = () => {
 
                   <div className="row mt-3 w-auto">
                     <p className="pt-2 ">Hello, this is the bio</p>
-                   
-                    <h5  className="pt-3 ">Education</h5>
-                    <p  className="pt-2 ">Put education here</p>
-                    <h5  className="pt-3 ">Experiences</h5>
-                    <p  className="pt-2 ">Experiences here</p>
-                    
-                    <h5  className="pt-3">Skills</h5>
-                    <ul  className="pt-2 ">
-                       <li>skill</li>
-                       <li>skill</li> 
-                       <li>skill</li> 
-                       <li>skill</li> 
+
+                    <h5 className="pt-3 ">Education</h5>
+                    <p className="pt-2 ">Put education here</p>
+                    <h5 className="pt-3 ">Experiences</h5>
+                    <p className="pt-2 ">Experiences here</p>
+
+                    <h5 className="pt-3">Skills</h5>
+                    <ul className="pt-2 ">
+                      <li>skill</li>
+                      <li>skill</li>
+                      <li>skill</li>
+                      <li>skill</li>
                     </ul>
 
-                    <p  className="pt-2 ">Location: your location</p>
-                    <p >Phone number</p>
+                    <p className="pt-2 ">Location: your location</p>
+                    <p>Phone number</p>
                   </div>
-                  
                 </div>
                 <div className="mt-5 text-center "></div>
               </div>
@@ -110,16 +82,20 @@ const Profile = () => {
 
                     <ul className="pt-5">
                       <li>
-                        <i className="bi bi-check-circle" /> <a href="/">Course Name</a>
+                        <i className="bi bi-check-circle" />{" "}
+                        <a href="/">Course Name</a>
                       </li>
                       <li>
-                        <i className="bi bi-check-circle" /><a href="/">Course Name</a>
+                        <i className="bi bi-check-circle" />
+                        <a href="/">Course Name</a>
                       </li>
                       <li>
-                        <i className="bi bi-check-circle" /><a href="/">Course Name</a>
+                        <i className="bi bi-check-circle" />
+                        <a href="/">Course Name</a>
                       </li>
                       <li>
-                        <i className="bi bi-check-circle" /><a href="/">Course Name</a>
+                        <i className="bi bi-check-circle" />
+                        <a href="/">Course Name</a>
                       </li>
                     </ul>
                   </div>
@@ -130,7 +106,7 @@ const Profile = () => {
         </form>
       </section>
 
-      <Footer/>
+      <Footer />
     </>
   );
 };

@@ -5,7 +5,11 @@
  const Footer = () => {
    return (
      <div>
-
+      <link
+        href="assets/vendor/boxicons/css/boxicons.min.css"
+        rel="stylesheet"
+      />
+      
         <footer id="footer">
        
        <div className="container d-md-flex py-4">
