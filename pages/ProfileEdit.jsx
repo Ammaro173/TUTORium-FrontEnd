@@ -31,11 +31,11 @@ const ProfileEdit = () => {
                   />
                   <input
                     type="file"
-                    class="custom-file-input"
+                    className="custom-file-input"
                     id="validatedCustomFile"
                     hidden
                   />
-                  <label for="validatedCustomFile">Choose Image</label>
+                  <label htmlFor="validatedCustomFile">Choose Image</label>
 
                   <span className="font-weight-bold">Name</span>
                   <span className="text-black-50">Email@email.com</span>
@@ -140,11 +140,11 @@ const ProfileEdit = () => {
                   <div className="col-md-6 pt-3">
                     <input
                       type="file"
-                      class="custom-file-input"
+                      className="custom-file-input"
                       id="validatedCustomFile"
                       hidden
                     />
-                    <label for="validatedCustomFile">Import Files</label>
+                    <label htmlFor="validatedCustomFile">Import Files</label>
                   </div>
 
                   <div className="mt-5 text-center ">

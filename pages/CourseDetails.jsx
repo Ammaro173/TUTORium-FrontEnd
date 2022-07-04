@@ -1,7 +1,11 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import { useState } from "react";
 
-const CourseDetails = () => {
+const CourseDetails = ({ courses, id }) => {
+
+
+  console.log("hiiiiiiii", courses[id]);
   return (
     <>
       <link
@@ -16,64 +20,55 @@ const CourseDetails = () => {
 
       <Navbar />
 
-      {/* ======= Breadcrumbs ======= */}
-      <div className="breadcrumbs">
-        <div className="container">
-          <h2>Contact Us</h2>
-          <p>
-            Feel free to contact us and give us your feedback. We will be glad
-            to hear from you!
-          </p>
-        </div>
-      </div>
-      {/* End Breadcrumbs */}
+      <hr></hr>
+      {/* ======= Counts Section ======= */}
+      <section id="counts" className="counts section-bg mb-4"></section>
+      {/* End Counts Section */}
+
+
 
       <main id="main">
         {/* ======= Courses Section ======= */}
+
         <>
           <section id="course-details" className="course-details">
             <div className="container">
               <div className="row">
                 <div className="col-lg-8">
-                  <img
-                    src="assets/img/course-details.jpg"
-                    className="img-fluid"
-                    alt=""
-                  />
-                  <h3>Et enim incidunt fuga tempora</h3>
+                  <img src="assets/img/course-details.jpg" className="img-fluid" alt="" />
+                  <h3>{courses[id].name}</h3>
                   <p>
-                    Qui et explicabo voluptatem et ab qui vero et voluptas. Sint
-                    voluptates temporibus quam autem. Atque nostrum voluptatum
-                    laudantium a doloremque enim et ut dicta. Nostrum ducimus
-                    est iure minima totam doloribus nisi ullam deserunt.
-                    Corporis aut officiis sit nihil est. Labore aut sapiente
-                    aperiam. Qui voluptas qui vero ipsum ea voluptatem. Omnis et
-                    est. Voluptatem officia voluptatem adipisci et iusto
-                    provident doloremque consequatur. Quia et porro est. Et qui
-                    corrupti laudantium ipsa. Eum quasi saepe aperiam qui
-                    delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui
-                    numquam eum iste est dolorum. Rem voluptas ut sit ut.
+                    {courses[id].description}
                   </p>
                 </div>
                 <div className="col-lg-4">
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Trainer</h5>
                     <p>
-                      <a href="#">Walter White</a>
+                      <a href="#">{courses[id].tutor = 'hi diala'}</a>
                     </p>
                   </div>
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Course Fee</h5>
-                    <p>$165</p>
+                    <p>{courses[id].price}$</p>
                   </div>
-                  <div className="course-info d-flex justify-content-between align-items-center">
+                  <div className="course-info d-flex justify-content-between align-items-center" >
                     <h5>Available Seats</h5>
-                    <p>30</p>
+                    <i className="bx bx-user justify-content-between" style={{ marginLeft: '10vw' }} />
+                    {courses[id].available_seat} &nbsp;
                   </div>
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Schedule</h5>
                     <p>5.00 pm - 7.00 pm</p>
                   </div>
+                  <section className="about" style={{ padding: 10 }}>
+                    <form className="php-email-form">
+                      <div className='text-center '>
+                        <button className="px-5 btn btn-primary profile-button" type="submit" onClick={() => alert("Booked")} style={{ margin: 'auto' }} >Enroll</button>
+                      </div></form>
+                  </section>
+
+
                 </div>
               </div>
             </div>
@@ -82,7 +77,21 @@ const CourseDetails = () => {
       </main>
       {/* End main */}
 
+      {/* ======= Breadcrumbs ======= */}
+      <div className="breadcrumbs">
+        <div className="container">
+          <h3>Contact Us</h3>
+          <p>
+            Feel free to contact us and give us your feedback. We will be glad
+            to hear from you!
+          </p>
+        </div>
+      </div>
+      {/* End Breadcrumbs */}
+
       <Footer />
+
+
     </>
   );
 };

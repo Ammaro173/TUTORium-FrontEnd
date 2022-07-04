@@ -37,8 +37,7 @@ const Profile = () => {
                   <Link href="/ProfileEdit">
                     <button
                       className="btn btn-primary profile-button"
-                      type="submit"
-                    >
+                      type="submit">
                       Edit Profile
                     </button>
                   </Link>
