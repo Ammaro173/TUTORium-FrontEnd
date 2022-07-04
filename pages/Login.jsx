@@ -39,7 +39,7 @@ const Login = () => {
       <link href="assets/css/style.css" rel="stylesheet" />
 
 
-      <Navbar/>
+      <Navbar />
 
 
 
@@ -81,9 +81,9 @@ const Login = () => {
                       />
                     </div>
                     <div className='text-center'>
-                    <button className=" px-5 py-1 mt-2 " type="submit">
-                      Login
-                    </button>
+                      <button className=" px-5 py-1 mt-2 " type="submit">
+                        Login
+                      </button>
                     </div>
                   </form>
 
@@ -107,7 +107,7 @@ const Login = () => {
       </main>
       {/* End #main */}
 
-      <Footer/>
+      <Footer />
     </>
   );
 };
