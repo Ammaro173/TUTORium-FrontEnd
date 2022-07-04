@@ -1,48 +1,82 @@
 import React from "react";
 import Link from "next/link";
 import Footer from "./Footer";
-import Navbar from './Navbar';
+import Navbar from "./Navbar";
+import { useState } from "react";
+import axios from "axios";
+import Router from "next/router";
+import jwt_decode from "jwt-decode";
 
 const Login = () => {
+  const [login, setLogin] = useState(false);
+  const [userData, setUserData] = useState();
+
+  const handleChange = (e) => {
+    setUserData({
+      ...userData, ///copy the old data and edit without deleting
+      [e.target.name]: e.target.value || null,
+    });
+  };
+
+  const getUserInfo = (token) => {
+    var decoded = jwt_decode(token);
+    return decoded;
+  };
+  console.info(userData);
+
+  const checkUser = (username, password) => {
+    if (localStorage.getItem("access_token")) {
+      const token = localStorage.getItem("access_token");
+      const decodeToken = getUserInfo(token);
+
+      if (decodeToken.username == username) {
+        setLogin(true);
+        Router.push("/");
+      } else {
+        Router.push("/Register");
+      }
+    } else {
+      axios
+        .post("http://127.0.0.1:8000/api/token/", userData)
+        .then((res) => {
+          localStorage.setItem("access_token", res.data.refresh);
+
+          setLogin(true);
+          Router.push("/");
+        })
+        .catch((err) => {
+          Router.push("/Register");
+        });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
+    checkUser(username, password);
+  };
+
   return (
     <>
-      <meta charSet="utf-8" />
-      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-      <title>Login - Mentor Bootstrap Template</title>
-      <meta content="" name="description" />
-      <meta content="" name="keywords" />
-      <link href="assets/img/favicon.png" rel="icon" />
-      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+      
       <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet"
       />
-      <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
-      <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
       <link
         href="assets/vendor/bootstrap/css/bootstrap.min.css"
         rel="stylesheet"
       />
-      <link
-        href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-        rel="stylesheet"
-      />
-      <link
-        href="assets/vendor/boxicons/css/boxicons.min.css"
-        rel="stylesheet"
-      />
-      <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-      <link
-        href="assets/vendor/swiper/swiper-bundle.min.css"
-        rel="stylesheet"
-      />
+   
       <link href="assets/css/style.css" rel="stylesheet" />
 
 
-      <Navbar />
 
-
-
+      <Navbar login={login} setlogin={setLogin} />
 
       <main id="main">
         {/* ======= Breadcrumbs ======= */}
@@ -65,22 +99,26 @@ const Login = () => {
                   {/* welcome */}
 
                   {/* inputs */}
-                  <form className="php-email-form">
+                  <form className="php-email-form" onSubmit={handleSubmit}>
                     <div className="form-group p-1">
                       <input
                         className="form-control"
+                        name="username"
                         placeholder="Username"
+                        onChange={handleChange}
                         type="text"
                       />
                     </div>
                     <div className="form-group p-1">
                       <input
                         className="form-control"
+                        name="password"
                         placeholder="Password"
+                        onChange={handleChange}
                         type="password"
                       />
                     </div>
-                    <div className='text-center'>
+                    <div className="text-center">
                       <button className=" px-5 py-1 mt-2 " type="submit">
                         Login
                       </button>
@@ -92,9 +130,7 @@ const Login = () => {
                     <p>
                       Join Us Now
                       <Link href="/Register">
-                        <a className="m-1 ">
-                          Register here!
-                        </a>
+                        <a className="m-1 ">Register here!</a>
                       </Link>
                     </p>
                   </div>
