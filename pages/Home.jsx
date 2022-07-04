@@ -1,6 +1,6 @@
 import Navbar from './Navbar'
 import Footer from "./Footer";
-
+import Link from 'next/link'
 
 const Home = () => {
 
@@ -57,9 +57,9 @@ const Home = () => {
           <h2>
             Welcome To TUTORium, <br /> Where You Can Learn Or Teach Anything!
           </h2>
-          <a href="/#features" className="btn-get-started">
+          <Link href="/#features"><a href="/#features" className="btn-get-started">
             Get Started!
-          </a>
+          </a></Link>
         </div>
       </section>
       {/* End Hero */}
@@ -136,7 +136,7 @@ const Home = () => {
                     style={{ color: "#e361ff" }}
                   />
                   <h3>
-                    <a href="/Courses">Arts and Crafts</a>
+                    <Link href="/Courses"><a href="/Courses">Arts and Crafts</a></Link>
                   </h3>
                 </div>
               </div>
@@ -147,7 +147,7 @@ const Home = () => {
                     style={{ color: "#ff5828" }}
                   />
                   <h3>
-                    <a href="/Courses">Technology</a>
+                  <Link href="/Courses"><a href="/Courses">Technology</a></Link>
                   </h3>
                 </div>
               </div>
@@ -158,7 +158,7 @@ const Home = () => {
                     style={{ color: "#e80368" }}
                   />
                   <h3>
-                    <a href="/Courses">Health</a>
+                  <Link href="/Courses"><a href="/Courses">Health</a></Link>
                   </h3>
                 </div>
               </div>
@@ -169,7 +169,7 @@ const Home = () => {
                     style={{ color: "#b2904f" }}
                   />
                   <h3>
-                    <a href="/Courses">Sports</a>
+                  <Link href="/Courses"><a href="/Courses">Sports</a></Link>
                   </h3>
                 </div>
               </div>
@@ -180,7 +180,7 @@ const Home = () => {
                     style={{ color: "#47aeff" }}
                   />
                   <h3>
-                    <a href="/Courses">Sciences</a>
+                  <Link href="/Courses"><a href="/Courses">Sciences</a></Link>
                   </h3>
                 </div>
               </div>
@@ -191,7 +191,7 @@ const Home = () => {
                     style={{ color: "#5578ff" }}
                   />
                   <h3>
-                    <a href="/Courses">Business</a>
+                  <Link href="/Courses"><a href="/Courses">Business</a></Link>
                   </h3>
                 </div>
               </div>
@@ -202,7 +202,7 @@ const Home = () => {
                     style={{ color: "#11dbcf" }}
                   />
                   <h3>
-                    <a href="/Courses">Languages</a>
+                  <Link href="/Courses"><a href="/Courses">Languages</a></Link>
                   </h3>
                 </div>
               </div>
@@ -210,7 +210,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-markup-fill" style={{ color: "#4233ff" }} />
                   <h3>
-                    <a href="/Courses">Beauty</a>
+                  <Link href="/Courses"><a href="/Courses">Beauty</a></Link>
                   </h3>
                 </div>
               </div>
@@ -221,7 +221,7 @@ const Home = () => {
                     style={{ color: "#ffa76e" }}
                   />
                   <h3>
-                    <a href="/Courses">Cooking</a>
+                  <Link href="/Courses"><a href="/Courses">Cooking</a></Link>
                   </h3>
                 </div>
               </div>
@@ -230,7 +230,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className=" ri-earth-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                    <a href="/Courses">Agriculture</a>
+                  <Link href="/Courses"><a href="/Courses">Agriculture</a></Link>
                   </h3>
                 </div>
               </div>
@@ -238,7 +238,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-disc-line" style={{ color: "#b20969" }} />
                   <h3>
-                    <a href="/Courses">Music</a>
+                  <Link href="/Courses"><a href="/Courses">Music</a></Link>
                   </h3>
                 </div>
               </div>
@@ -249,7 +249,7 @@ const Home = () => {
                     style={{ color: "#29cc61" }}
                   />
                   <h3>
-                    <a href="/Courses">Others</a>
+                  <Link href="/Courses"><a href="/Courses">Others</a></Link>
                   </h3>
                 </div>
               </div>
@@ -281,18 +281,18 @@ const Home = () => {
                       Odio veritatis perspiciatis quaerat qui aut aut aut
                     </p>
                     <div className="social">
-                      <a href="">
+                      <Link href=""><a href="">
                         <i className="bi bi-twitter" />
-                      </a>
-                      <a href="">
+                      </a ></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-facebook" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-instagram" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </a></Link>
                     </div>
                   </div>
                 </div>
@@ -312,18 +312,18 @@ const Home = () => {
                       repellendus. In architecto rerum rerum temporibus
                     </p>
                     <div className="social">
-                      <a href="">
+                      <Link href=""><a href="">
                         <i className="bi bi-twitter" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-facebook" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-instagram" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </a></Link>
                     </div>
                   </div>
                 </div>
@@ -343,18 +343,18 @@ const Home = () => {
                       consequuntur qui porro et laborum toro des clara
                     </p>
                     <div className="social">
-                      <a href="">
+                      <Link href=""><a href="">
                         <i className="bi bi-twitter" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-facebook" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-instagram" />
-                      </a>
-                      <a href="">
+                      </a></Link>
+                      <Link href=""><a href="">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </a></Link>
                     </div>
                   </div>
                 </div>

@@ -82,27 +82,27 @@ body {
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    -webkit-animation: animate-preloader 1s linear infinite;
-    animation: animate-preloader 1s linear infinite;
+    /* -webkit-animation: animate-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite; */
   }
   
-  @-webkit-keyframes animate-preloader {
+  /* @-webkit-keyframes animate-preloader {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
+  } */
   
-  @keyframes animate-preloader {
+  /* @keyframes animate-preloader {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
+  } */
   /*--------------------------------------------------------------
   # Disable aos animation delay on mobile devices
   --------------------------------------------------------------*/
@@ -459,14 +459,14 @@ body {
     background: #87b6c2;
     cursor: pointer;
   }
-  @-webkit-keyframes animate-loading {
+  /* @-webkit-keyframes animate-loading {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
+  } */
 
   /*--------------------------------------------------------------
   # Sections General
@@ -953,10 +953,10 @@ body {
     color: #2e9eb9;
     border-color: #2e9eb9;
   }
-  .cource-details-tabs .tab-pane.active {
+  /* .cource-details-tabs .tab-pane.active {
     -webkit-animation: fadeIn 0.5s ease-out;
     animation: fadeIn 0.5s ease-out;
-  }
+  } */
   .cource-details-tabs .details h3 {
     font-size: 26px;
     font-weight: 600;
@@ -1222,8 +1222,8 @@ body {
     margin: 0 10px -6px 0;
     border: 3px solid #18d26e;
     border-top-color: #eee;
-    -webkit-animation: animate-loading 1s linear infinite;
-    animation: animate-loading 1s linear infinite;
+    /* -webkit-animation: animate-loading 1s linear infinite;
+    animation: animate-loading 1s linear infinite; */
   }
   .contact .php-email-form input, .contact .php-email-form textarea {
     border-radius: 4px;
@@ -1250,14 +1250,14 @@ body {
   .contact .php-email-form button[type=submit]:hover {
     background: #87b6c2;
   }
-  @-webkit-keyframes animate-loading {
+  /* @-webkit-keyframes animate-loading {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
+  } */
 
   .about .php-email-form button[type=submit] {
     background: #2e9eb9;
@@ -1270,22 +1270,22 @@ body {
   .about .php-email-form button[type=submit]:hover {
     background: #87b6c2;
   }
-  @-webkit-keyframes animate-loading {
+  /* @-webkit-keyframes animate-loading {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
-  @keyframes animate-loading {
+  } */
+  /* @keyframes animate-loading {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
+  } */
   
   /*--------------------------------------------------------------
   # Footer
