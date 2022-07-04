@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const Contact = () => {
+
   return (
     <>
       <link

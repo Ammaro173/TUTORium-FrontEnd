@@ -45,7 +45,7 @@ const CourseDetails = ({ courses, id }) => {
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Trainer</h5>
                     <p>
-                      <a href="#">{courses[id].tutor = 'hi diala'}</a>
+                      <a href="#">{courses[id].tutor || 'im empty'}</a>
                     </p>
                   </div>
                   <div className="course-info d-flex justify-content-between align-items-center">
@@ -64,7 +64,7 @@ const CourseDetails = ({ courses, id }) => {
                   <section className="about" style={{ padding: 10 }}>
                     <form className="php-email-form">
                       <div className='text-center '>
-                        <button className="px-5 btn btn-primary profile-button" type="submit" onClick={() => alert("Booked")} style={{ margin: 'auto' }} >Enroll</button>
+                        <button className="px-5 btn btn-primary profile-button" type="submit" onClick={(e) => { e.preventDefault(); alert("Booked") }} style={{ margin: 'auto' }} >Enroll</button>
                       </div></form>
                   </section>
 

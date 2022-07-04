@@ -24,6 +24,7 @@ const Courses = () => {
   useEffect(() => {
 
     if (localStorage.getItem("token") === null) {
+
       console.log("getting token");
       axios.post('http://127.0.0.1:8000/api/token/', userData).then(res => {
         console.log('im res', res);
@@ -111,36 +112,39 @@ const Courses = () => {
             <div className="row" style={{ margin: 'auto' }}>
               {
                 courses && courses.map((ele) => {
-                  return (
-                    <div key={ele.id} className="col-lg-6 col-md-6 d-flex align-items-stretch mt-5 " style={{ border: '1px gray', margin: 'auto' }}>
-                      <div className="course-item">
-                        <img src="assets/img/course-2.jpg" className="img-fluid" alt="..." />
-                        <div className="course-content">
-                          <div className="d-flex justify-content-between align-items-center mb-3">
-                            <h3>
-                              <a href="#courseDetails" onClick={() => { setCurr(ele); setShow(true); setId(ele.id) }}>
-                                {ele.name}
-                              </a>
-                            </h3>
-                            <p className="price">{ele.price}$</p>
-                          </div>
-                          <p>{ele.description}</p>
-                          <div className="trainer d-flex justify-content-between align-items-center">
-                            <div className="trainer-profile d-flex align-items-center">
-                              <img src="assets/img/trainers/trainer-2.jpg" className="img-fluid" alt="" />
-                              <span>Tutor</span>
+                  if (ele.course_category === 'Beauty') {
+                    return (
+                      <div key={ele.id} className="col-lg-6 col-md-6 d-flex align-items-stretch mt-5 " style={{ border: '1px gray', margin: 'auto' }}>
+                        <div className="course-item">
+                          <img src="assets/img/course-2.jpg" className="img-fluid" alt="..." />
+                          <div className="course-content">
+                            <div className="d-flex justify-content-between align-items-center mb-3">
+                              <h3>
+                                <a href="#courseDetails" onClick={() => { setCurr(ele); setShow(true); setId(ele.id) }}>
+                                  {ele.name}
+                                </a>
+                              </h3>
+                              <p className="price">{ele.price}$</p>
                             </div>
-                            <div className="trainer-rank d-flex align-items-center" style={{ gap: '9px' }}>
-                              <i className="bx bx-user" />
-                              &nbsp;{ele.available_seat}
-                              <button className="bx bx-heart" aria-label='Button' style={{ border: 'none', background: 'white', padding: 0 }} />
-                              &nbsp;{ele.likes = 1111}
+                            <p>{ele.description}</p>
+                            <div className="trainer d-flex justify-content-between align-items-center">
+                              <div className="trainer-profile d-flex align-items-center">
+                                <img src="assets/img/trainers/trainer-2.jpg" className="img-fluid" alt="" />
+                                <span>Tutor</span>
+                              </div>
+                              <div className="trainer-rank d-flex align-items-center" style={{ gap: '9px' }}>
+                                <i className="bx bx-user" />
+                                &nbsp;{ele.available_seat}
+                                <button className="bx bx-heart" aria-label='Button' style={{ border: 'none', background: 'white', padding: 0 }} />
+                                &nbsp;{ele.likes = 1111}
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  )
+                    )
+                  }
+
                 })}
             </div>
           </div>
