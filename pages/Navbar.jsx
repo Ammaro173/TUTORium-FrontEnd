@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-
+import Courses from "./Courses_Art";
 
 const Navbar = () => {
+  let show = false
+  const [curr, setCurr] = useState('Technology');
 
 
   return (
+
 
     <header id="header" className="fixed-top">
       <meta charSet="utf-8" />
@@ -17,6 +20,7 @@ const Navbar = () => {
         href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
         rel="stylesheet"
       />
+      {/* <Courses curr={curr} /> */}
 
       < div className="container d-flex align-items-center">
         <h1 className="logo me-auto">
@@ -40,41 +44,41 @@ const Navbar = () => {
               </a>
               <ul>
                 <li>
-                  <a href="/Courses">Arts and Crafts</a>
+                  <a href="/Courses_Art" name="Arts and Crafts" onClick={(e) => setCurr(e.target.name)}>Arts and Crafts</a>
                 </li>
 
                 <li>
-                  <a href="/Courses">Technology</a>
+                  <a href="/Courses_Tech" type='submit' name="Technology" onClick={(e) => { setCurr(e.target.name); console.log(curr) }} >Technology</a>
                 </li>
                 <li>
-                  <a href="/Courses">Health</a>
+                  <a href="/Courses_Health">Health</a>
                 </li>
                 <li>
-                  <a href="/Courses">Sports</a>
+                  <a href="/Courses_Sports">Sports</a>
                 </li>
                 <li>
-                  <a href="/Courses">Sciences</a>
+                  <a href="/Courses_Sciences">Sciences</a>
                 </li>
                 <li>
-                  <a href="/Courses">Business</a>
+                  <a href="/Courses_Buisness">Buisness</a>
                 </li>
                 <li>
-                  <a href="/Courses">Languages</a>
+                  <a href="/Courses_Languages">Languages</a>
                 </li>
                 <li>
-                  <a href="/Courses">Beauty</a>
+                  <a href="/Courses_Beauty">Beauty</a>
                 </li>
                 <li>
-                  <a href="/Courses">Cooking</a>
+                  <a href="/Courses_Cooking">Cooking</a>
                 </li>
                 <li>
-                  <a href="/Courses">Agriculture</a>
+                  <a href="/Courses_Agriculture">Agriculture</a>
                 </li>
                 <li>
-                  <a href="/Courses">Music</a>
+                  <a href="/Courses_Music">Music</a>
                 </li>
                 <li>
-                  <a href="/Courses">Others</a>
+                  <a href="/Courses_Others">Others</a>
                 </li>
               </ul>
             </li>
@@ -92,8 +96,12 @@ const Navbar = () => {
 
         </div>
 
-      </div>
+
+
+      </div >
+
     </header >
+
   )
 }
 

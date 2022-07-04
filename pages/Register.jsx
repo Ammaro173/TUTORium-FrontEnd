@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+// import Footer from '../components/Footer'
+// import Navbar from '../components/Navbar'
 
 
 const Register = () => {
@@ -34,8 +34,7 @@ const Register = () => {
       <link href="assets/css/style.css" rel="stylesheet" />
 
 
-      <Navbar />
-
+      {/* <Navbar /> */}
 
 
       <main id="register" className="about">
@@ -129,7 +128,7 @@ const Register = () => {
 
 
 
-      <Footer />
+      {/* <Footer /> */}
     </>
 
   )
