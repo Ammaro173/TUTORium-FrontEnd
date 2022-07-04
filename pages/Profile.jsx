@@ -82,19 +82,19 @@ const Profile = () => {
                     <ul className="pt-5">
                       <li>
                         <i className="bi bi-check-circle" />{" "}
-                        <a href="/">Course Name</a>
+                        <Link href="/"><a href="/">Course Name</a></Link>
                       </li>
                       <li>
                         <i className="bi bi-check-circle" />
-                        <a href="/">Course Name</a>
+                        <Link href="/"><a href="/">Course Name</a></Link>
                       </li>
                       <li>
                         <i className="bi bi-check-circle" />
-                        <a href="/">Course Name</a>
+                        <Link href="/"><a href="/">Course Name</a></Link>
                       </li>
                       <li>
                         <i className="bi bi-check-circle" />
-                        <a href="/">Course Name</a>
+                        <Link href="/"><a href="/">Course Name</a></Link>
                       </li>
                     </ul>
                   </div>
