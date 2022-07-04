@@ -45,7 +45,7 @@ const CourseDetails = ({ courses, id }) => {
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Trainer</h5>
                     <p>
-                    <Link href="#courseDetails"><a href="#">{courses[id].tutor || 'im empty'}</a></Link>
+                      <Link href="#">{courses[id].tutor || 'im empty'}</Link>
                     </p>
                   </div>
                   <div className="course-info d-flex justify-content-between align-items-center">

@@ -72,9 +72,9 @@ const Login = () => {
         rel="stylesheet"
       />
    
+      
+
       <link href="assets/css/style.css" rel="stylesheet" />
-
-
 
       <Navbar login={login} setlogin={setLogin} />
 
