@@ -1,6 +1,7 @@
 import Navbar from './Navbar'
 import Footer from "./Footer";
-import Link from 'next/link'
+import Link from 'next/link';
+
 
 const Home = () => {
 
@@ -57,9 +58,9 @@ const Home = () => {
           <h2>
             Welcome To TUTORium, <br /> Where You Can Learn Or Teach Anything!
           </h2>
-          <Link href="/#features"><a href="/#features" className="btn-get-started">
+          <Link href="/#features" className="btn-get-started">
             Get Started!
-          </a></Link>
+          </Link>
         </div>
       </section>
       {/* End Hero */}
@@ -136,7 +137,7 @@ const Home = () => {
                     style={{ color: "#e361ff" }}
                   />
                   <h3>
-                    <Link href="/Courses"><a href="/Courses">Arts and Crafts</a></Link>
+                    <Link href="/Courses">Arts and Crafts</Link>
                   </h3>
                 </div>
               </div>
@@ -147,7 +148,7 @@ const Home = () => {
                     style={{ color: "#ff5828" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Technology</a></Link>
+                    <Link href="/Courses">Technology</Link>
                   </h3>
                 </div>
               </div>
@@ -158,7 +159,7 @@ const Home = () => {
                     style={{ color: "#e80368" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Health</a></Link>
+                    <Link href="/Courses">Health</Link>
                   </h3>
                 </div>
               </div>
@@ -169,7 +170,7 @@ const Home = () => {
                     style={{ color: "#b2904f" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Sports</a></Link>
+                    <Link href="/Courses">Sports</Link>
                   </h3>
                 </div>
               </div>
@@ -180,7 +181,7 @@ const Home = () => {
                     style={{ color: "#47aeff" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Sciences</a></Link>
+                    <Link href="/Courses">Sciences</Link>
                   </h3>
                 </div>
               </div>
@@ -191,7 +192,7 @@ const Home = () => {
                     style={{ color: "#5578ff" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Business</a></Link>
+                    <Link href="/Courses">Business</Link>
                   </h3>
                 </div>
               </div>
@@ -202,7 +203,7 @@ const Home = () => {
                     style={{ color: "#11dbcf" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Languages</a></Link>
+                    <Link href="/Courses">Languages</Link>
                   </h3>
                 </div>
               </div>
@@ -210,7 +211,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-markup-fill" style={{ color: "#4233ff" }} />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Beauty</a></Link>
+                    <Link href="/Courses">Beauty</Link>
                   </h3>
                 </div>
               </div>
@@ -221,7 +222,7 @@ const Home = () => {
                     style={{ color: "#ffa76e" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Cooking</a></Link>
+                    <Link href="/Courses">Cooking</Link>
                   </h3>
                 </div>
               </div>
@@ -230,7 +231,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className=" ri-earth-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Agriculture</a></Link>
+                    <Link href="/Courses">Agriculture</Link>
                   </h3>
                 </div>
               </div>
@@ -238,7 +239,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-disc-line" style={{ color: "#b20969" }} />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Music</a></Link>
+                    <Link href="/Courses">Music</Link>
                   </h3>
                 </div>
               </div>
@@ -249,7 +250,7 @@ const Home = () => {
                     style={{ color: "#29cc61" }}
                   />
                   <h3>
-                  <Link href="/Courses"><a href="/Courses">Others</a></Link>
+                    <Link href="/Courses">Others</Link>
                   </h3>
                 </div>
               </div>
@@ -281,18 +282,18 @@ const Home = () => {
                       Odio veritatis perspiciatis quaerat qui aut aut aut
                     </p>
                     <div className="social">
-                      <Link href=""><a href="">
+                      <Link href="/">
                         <i className="bi bi-twitter" />
-                      </a ></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-facebook" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-instagram" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-linkedin" />
-                      </a></Link>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -312,18 +313,18 @@ const Home = () => {
                       repellendus. In architecto rerum rerum temporibus
                     </p>
                     <div className="social">
-                      <Link href=""><a href="">
+                      <Link href="/">
                         <i className="bi bi-twitter" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-facebook" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-instagram" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-linkedin" />
-                      </a></Link>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -343,18 +344,18 @@ const Home = () => {
                       consequuntur qui porro et laborum toro des clara
                     </p>
                     <div className="social">
-                      <Link href=""><a href="">
+                      <Link href="/">
                         <i className="bi bi-twitter" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-facebook" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-instagram" />
-                      </a></Link>
-                      <Link href=""><a href="">
+                      </Link>
+                      <Link href="/">
                         <i className="bi bi-linkedin" />
-                      </a></Link>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -1,7 +1,6 @@
  
- 
+import Link from 'next/link' 
  import React from 'react'
-import Link from 'next/link'
  
  const Footer = () => {
    return (
@@ -25,15 +24,15 @@ import Link from 'next/link'
          </div>
          <div className="social-links text-center text-md-right pt-3 pt-md-0">
            
-           <Link href="#"><a href="#" className="facebook">
+           <Link href="#" className="facebook">
              <i className="bx bxl-facebook" />
-           </a></Link>
-           <Link><a href="#" className="instagram">
+           </Link>
+           <Link href="#" className="instagram">
              <i className="bx bxl-instagram" />
-           </a></Link>
-           <Link><a href="#" className="linkedin">
+           </Link>
+           <Link href="#" className="linkedin">
              <i className="bx bxl-linkedin" />
-           </a></Link>
+           </Link>
          </div>
        </div>
      </footer>
