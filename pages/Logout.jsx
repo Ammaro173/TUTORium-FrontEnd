@@ -8,12 +8,12 @@ import Router from "next/router";
 
 export default function Logout(){
 useEffect(()=>{
-    const response = axios.post('http://127.0.0.1:8000/api/logout/blacklist', {
-      refresh_token: localStorage.getItem('refresh_token'),
-    });
+    
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
     axios.defaults.headers['Authorization'] = null;
+    
+    localStorage.removeItem("login")
     Router.push('/Login')
   });
 

@@ -18,11 +18,13 @@ const Login = () => {
     });
   };
 
+ 
+
   const getUserInfo = (token) => {
     var decoded = jwt_decode(token);
     return decoded;
   };
-  console.info(userData);
+ 
 
   const checkUser = (username, password) => {
     if (localStorage.getItem("access_token")) {
@@ -31,21 +33,26 @@ const Login = () => {
 
       if (decodeToken.username == username) {
         setLogin(true);
+        localStorage.setItem("login", true);
         Router.push("/");
       } else {
         Router.push("/Register");
+        alert("You don't have an account! PLease Register.");
       }
     } else {
+      console.log(userData)
       axios
-        .post("http://127.0.0.1:8000/api/token/", userData)
+        .post("http://tutorium.herokuapp.com/api/token/", userData)
         .then((res) => {
-          localStorage.setItem("access_token", res.data.refresh);
+          localStorage.setItem("access_token", res.data.access);
 
           setLogin(true);
+          localStorage.setItem("login", true);
           Router.push("/");
         })
         .catch((err) => {
           Router.push("/Register");
+          alert("Please Register First!");
         });
     }
   };
@@ -61,7 +68,6 @@ const Login = () => {
 
   return (
     <>
-      
       <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet"
@@ -71,12 +77,10 @@ const Login = () => {
         href="assets/vendor/bootstrap/css/bootstrap.min.css"
         rel="stylesheet"
       />
-   
-      
 
       <link href="assets/css/style.css" rel="stylesheet" />
 
-      <Navbar login={login} setlogin={setLogin} />
+      <Navbar login={login} setLogin={setLogin} />
 
       <main id="main">
         {/* ======= Breadcrumbs ======= */}

@@ -22,7 +22,7 @@ import Link from 'next/link'
              . All Rights Reserved
            </div>
          </div>
-         <div className="social-links text-center text-md-right pt-3 pt-md-0">
+         {/* <div className="social-links text-center text-md-right pt-3 pt-md-0">
            
            <Link href="#" className="facebook">
              <i className="bx bxl-facebook" />
@@ -33,7 +33,7 @@ import Link from 'next/link'
            <Link href="#" className="linkedin">
              <i className="bx bxl-linkedin" />
            </Link>
-         </div>
+         </div> */}
        </div>
      </footer>
      </div>
