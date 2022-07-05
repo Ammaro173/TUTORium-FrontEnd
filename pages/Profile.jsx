@@ -2,8 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import {useState} from 'react'
 
 const Profile = () => {
+
+  const [teacher, setTeacher] = useState(false)
+
+
+
   return (
     <>
       <link
@@ -33,7 +39,7 @@ const Profile = () => {
                   />
 
                   <span className="text-black-50">edogaru@mail.com.my</span>
-                  <span>attached file here</span>
+                 
                   <Link href="/ProfileEdit">
                     <button
                       className="btn btn-primary profile-button"
@@ -52,34 +58,55 @@ const Profile = () => {
                   </div>
 
                   <div className="row mt-3 w-auto">
-                    <p className="pt-2 ">Hello, this is the bio</p>
+                    <p className="pt-2 ">Hello, this is the biofefwbf rfnnnnnnnnn</p>
 
                     <h5 className="pt-3 ">Education</h5>
                     <p className="pt-2 ">Put education here</p>
                     <h5 className="pt-3 ">Experiences</h5>
                     <p className="pt-2 ">Experiences here</p>
 
-                    <h5 className="pt-3">Skills</h5>
-                    <ul className="pt-2 ">
-                      <li>skill</li>
-                      <li>skill</li>
-                      <li>skill</li>
-                      <li>skill</li>
-                    </ul>
-
-                    <p className="pt-2 ">Location: your location</p>
+                    <p className="pt-5 ">Location: your location</p>
                     <p>Phone number</p>
                   </div>
                 </div>
-                <div className="mt-5 text-center "></div>
+                <div className="mt-2 text-center "></div>
               </div>
 
               <div className="col-md-4 ">
                 <div className="p-3 py-5">
                   <div className="col-mg-4 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                    <h4 className="text-right pt-5">My Courses</h4>
+                    <h4 className="text-right pt-5">My Enrolled Courses</h4>
 
-                    <ul className="pt-5">
+                    <ul className="pt-2">
+                      <li>
+                        <i className="bi bi-check-circle" />
+                        <Link href="/">Course Name</Link>
+                      </li>
+                      <li>
+                        <i className="bi bi-check-circle" />
+                        <Link href="/">Course Name</Link>
+                      </li>
+                      <li>
+                        <i className="bi bi-check-circle" />
+                        <Link href="/">Course Name</Link>
+                      </li>
+                      <li>
+                        <i className="bi bi-check-circle" />
+                        <Link href="/">Course Name</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+
+              {/* only for teachers */}
+
+              {teacher? <div className="p-3 py-1 ">
+                  <div className="col-mg-4 pt-lg-0 order-2 order-lg-1 content">
+                    <h4 className="text-right ">My Submitted Courses</h4>
+
+                    <ul className="pt-3">
                       <li>
                         <i className="bi bi-check-circle" />{" "}
                         <Link href="/">Course Name</Link>
@@ -96,9 +123,20 @@ const Profile = () => {
                         <i className="bi bi-check-circle" />
                         <Link href="/">Course Name</Link>
                       </li>
+                      
                     </ul>
+
+                    <button
+                      className="btn btn-primary profile-button"
+                      type="submit">
+                      Add Courses
+                    </button>
                   </div>
                 </div>
+                : null}
+                
+
+
               </div>
             </div>
           </div>

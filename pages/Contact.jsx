@@ -1,9 +1,19 @@
+
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  function sendEmail(e) {
+    e.preventDefault();
 
+    emailjs.sendForm(
+      "service_lx0hh2b",
+      "template_qpm0brf",
+      e.target,
+      "LRCfH88uLQ2ZuSOzA"
+    );
+  }
   return (
     <>
       <link
@@ -63,6 +73,7 @@ const Contact = () => {
                   method="post"
                   role="form"
                   className="php-email-form"
+                  onSubmit={sendEmail}
                 >
                   <div className="row">
                     <div className="col-md-6 form-group">

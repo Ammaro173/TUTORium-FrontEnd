@@ -7,24 +7,42 @@ import axios from "axios";
 
 const Register = () => {
   const [userData, setUserData] = useState();
+  const [isTeacher, setIsTeacher] = useState(false)
+
+
+  const handleIsTeacher = ()=>{
+    setIsTeacher(!isTeacher);
+    localStorage.setItem("isTeacher", true)
+  }
 
   const handleChange = (e) => {
+    console.log(userData)
     setUserData(
       Object.freeze({
         ...userData,
         [e.target.name]: e.target.value || null,
+        
       })
     );
+    
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userData);
 
-    axios.post("http://127.0.0.1:8000/api/register/", userData).then((res) => {
-      Router.push("/Login");
-    });
+    axios.post("http://tutorium.herokuapp.com/api/register/", userData).then((res) => {
+      Router.push("/ProfileEdit");
+      alert('Continue editing your profile..')
+    }).catch((err)=>{
+      console.log(err.request);
+      console.log(err.response);
+      console.log(err.message);
+    })
   };
+
+
 
   return (
     <>
@@ -122,7 +140,7 @@ const Register = () => {
                     </div>
 
                     <label className="p-1">
-                      <input type="checkbox" value={true} />
+                      <input type="checkbox"  onClick={handleIsTeacher}/>
                       <span> </span>Register as Tutor
                     </label>
 

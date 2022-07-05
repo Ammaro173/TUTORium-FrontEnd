@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 const Navbar = ({ login, setLogin }) => {
+
+  const [isLoggedin, setIsLoggedin] = useState(login);
+
   let show = false;
   const [curr, setCurr] = useState("Technology");
+
+  useEffect(() => {
+    setIsLoggedin(localStorage.getItem("login"));
+  }, []);
 
   return (
     <header id="header" className="fixed-top">
@@ -19,7 +26,10 @@ const Navbar = ({ login, setLogin }) => {
       />
       {/* <Courses curr={curr} /> */}
 
-      <div className="container d-flex align-items-center">
+      <div
+        className="container d-flex align-items-center"
+        style={{ gap: "20px" }}
+      >
         <h1 className="logo me-auto">
           <Link href="/Home">TUTORium</Link>
         </h1>
@@ -35,35 +45,39 @@ const Navbar = ({ login, setLogin }) => {
               <Link href="/Profile">Profile</Link>
             </li>
 
-            <li className="dropdown">
+            <li
+              className="dropdown"
+              style={{ cursor: "pointer", marginLeft: "30px", fontWeight: 510 }}
+            >
               <Link href="#">
                 <div>
-                  {" "}
-                  <span>Categories</span> <i className="bi bi-chevron-down" />
+                  Categories <i className="bi bi-chevron-down" />
                 </div>
               </Link>
               <ul>
                 <li>
-                  <Link
+                  <Link href="/Courses_Art"><a
                     href="/Courses_Art"
                     name="Arts and Crafts"
                     onClick={(e) => setCurr(e.target.name)}
                   >
                     Arts and Crafts
-                  </Link>
+                    </a></Link>
                 </li>
 
                 <li>
-                  <Link
-                    href="/Courses_Tech"
-                    type="submit"
-                    name="Technology"
-                    onClick={(e) => {
-                      setCurr(e.target.name);
-                      console.log(curr);
-                    }}
-                  >
-                    Technology
+                  <Link href="/Courses_Tech">
+                    <a
+                      href="/Courses_Tech"
+                      type="submit"
+                      name="Technology"
+                      onClick={(e) => {
+                        setCurr(e.target.name);
+                        console.log(curr);
+                      }}
+                    >
+                      Technology
+                    </a>
                   </Link>
                 </li>
                 <li>
@@ -105,7 +119,7 @@ const Navbar = ({ login, setLogin }) => {
           <i className="bi bi-list mobile-nav-toggle dropdown" />
         </nav>
 
-        {login ? (
+        {isLoggedin ? (
           <div>
             <Link href="/Logout" className="get-started-btn">
               Logout

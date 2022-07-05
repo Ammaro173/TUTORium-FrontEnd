@@ -1,17 +1,15 @@
+
 import Navbar from './Navbar'
 import Footer from "./Footer";
+import { useState } from 'react';
 import Link from 'next/link';
-
 
 const Home = () => {
 
+  
   return (
     <>
 
-
-      <title>Mentor Bootstrap Template - Index</title>
-
-      {/* Google Fonts */}
       <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet"
@@ -58,9 +56,9 @@ const Home = () => {
           <h2>
             Welcome To TUTORium, <br /> Where You Can Learn Or Teach Anything!
           </h2>
-          <Link href="/#features" className="btn-get-started">
+          <Link href="/#features"><a href="/#features" className="btn-get-started">
             Get Started!
-          </Link>
+          </a></Link>
         </div>
       </section>
       {/* End Hero */}
@@ -127,6 +125,8 @@ const Home = () => {
         <section id="features" className="features">
           <div className="text-center m-4 ">
             <h3>Courses Categories</h3>
+          
+            <div className="input-group rounded"></div>
           </div>
           <div className="container">
             <div className="row">
@@ -137,7 +137,7 @@ const Home = () => {
                     style={{ color: "#e361ff" }}
                   />
                   <h3>
-                    <Link href="/Courses">Arts and Crafts</Link>
+                    <a href="/Courses_Art">Arts and Crafts</a>
                   </h3>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const Home = () => {
                     style={{ color: "#ff5828" }}
                   />
                   <h3>
-                    <Link href="/Courses">Technology</Link>
+                    <a href="/Courses_Tech">Technology</a>
                   </h3>
                 </div>
               </div>
@@ -159,7 +159,7 @@ const Home = () => {
                     style={{ color: "#e80368" }}
                   />
                   <h3>
-                    <Link href="/Courses">Health</Link>
+                    <a href="/Courses_Health">Health</a>
                   </h3>
                 </div>
               </div>
@@ -170,7 +170,7 @@ const Home = () => {
                     style={{ color: "#b2904f" }}
                   />
                   <h3>
-                    <Link href="/Courses">Sports</Link>
+                    <a href="/Courses_Sports">Sports</a>
                   </h3>
                 </div>
               </div>
@@ -181,7 +181,7 @@ const Home = () => {
                     style={{ color: "#47aeff" }}
                   />
                   <h3>
-                    <Link href="/Courses">Sciences</Link>
+                    <a href="/Courses_Sciences">Sciences</a>
                   </h3>
                 </div>
               </div>
@@ -192,7 +192,7 @@ const Home = () => {
                     style={{ color: "#5578ff" }}
                   />
                   <h3>
-                    <Link href="/Courses">Business</Link>
+                    <a href="/Courses_Buisness">Business</a>
                   </h3>
                 </div>
               </div>
@@ -203,7 +203,7 @@ const Home = () => {
                     style={{ color: "#11dbcf" }}
                   />
                   <h3>
-                    <Link href="/Courses">Languages</Link>
+                    <a href="/Courses_Languages">Languages</a>
                   </h3>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-markup-fill" style={{ color: "#4233ff" }} />
                   <h3>
-                    <Link href="/Courses">Beauty</Link>
+                    <a href="/Courses_Beauty">Beauty</a>
                   </h3>
                 </div>
               </div>
@@ -222,7 +222,7 @@ const Home = () => {
                     style={{ color: "#ffa76e" }}
                   />
                   <h3>
-                    <Link href="/Courses">Cooking</Link>
+                    <a href="/Courses_Cooking">Cooking</a>
                   </h3>
                 </div>
               </div>
@@ -231,7 +231,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className=" ri-earth-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                    <Link href="/Courses">Agriculture</Link>
+                    <a href="/Courses_Agriculture">Agriculture</a>
                   </h3>
                 </div>
               </div>
@@ -239,7 +239,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-disc-line" style={{ color: "#b20969" }} />
                   <h3>
-                    <Link href="/Courses">Music</Link>
+                    <a href="/Courses_Music">Music</a>
                   </h3>
                 </div>
               </div>
@@ -250,7 +250,7 @@ const Home = () => {
                     style={{ color: "#29cc61" }}
                   />
                   <h3>
-                    <Link href="/Courses">Others</Link>
+                    <a href="/Courses_Others">Others</a>
                   </h3>
                 </div>
               </div>
@@ -258,8 +258,6 @@ const Home = () => {
           </div>
         </section>
         {/* End Features Section */}
-
-
 
 
 
@@ -282,18 +280,18 @@ const Home = () => {
                       Odio veritatis perspiciatis quaerat qui aut aut aut
                     </p>
                     <div className="social">
-                      <Link href="/">
+                      <a href="">
                         <i className="bi bi-twitter" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-facebook" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-instagram" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-linkedin" />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -313,18 +311,18 @@ const Home = () => {
                       repellendus. In architecto rerum rerum temporibus
                     </p>
                     <div className="social">
-                      <Link href="/">
+                      <a href="">
                         <i className="bi bi-twitter" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-facebook" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-instagram" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-linkedin" />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -344,18 +342,18 @@ const Home = () => {
                       consequuntur qui porro et laborum toro des clara
                     </p>
                     <div className="social">
-                      <Link href="/">
+                      <a href="">
                         <i className="bi bi-twitter" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-facebook" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-instagram" />
-                      </Link>
-                      <Link href="/">
+                      </a>
+                      <a href="">
                         <i className="bi bi-linkedin" />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

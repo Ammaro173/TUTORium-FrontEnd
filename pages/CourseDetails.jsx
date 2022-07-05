@@ -1,8 +1,10 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import Link from 'next/link'
 
 const CourseDetails = ({ courses, id }) => {
+  const [isenrolled, setIsenrolled] = useState(false)
 
 
   console.log("hiiiiiiii", courses[id]);
@@ -25,8 +27,6 @@ const CourseDetails = ({ courses, id }) => {
       <section id="counts" className="counts section-bg mb-4"></section>
       {/* End Counts Section */}
 
-
-
       <main id="main">
         {/* ======= Courses Section ======= */}
 
@@ -35,38 +35,60 @@ const CourseDetails = ({ courses, id }) => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-8">
-                  <img src="assets/img/course-details.jpg" className="img-fluid" alt="" />
+                  <img
+                    src="assets/img/course-details.jpg"
+                    className="img-fluid"
+                    alt=""
+                  />
                   <h3>{courses[id].name}</h3>
-                  <p>
-                    {courses[id].description}
-                  </p>
+                  <p>{courses[id].description}</p>
                 </div>
                 <div className="col-lg-4">
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Trainer</h5>
                     <p>
-                      <Link href="#">{courses[id].tutor || 'im empty'}</Link>
+                      <Link href="#">{courses[id].tutor || "im empty"}</Link>
                     </p>
                   </div>
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Course Fee</h5>
                     <p>{courses[id].price}$</p>
                   </div>
-                  <div className="course-info d-flex justify-content-between align-items-center" >
+                  <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Available Seats</h5>
-                    <i className="bx bx-user justify-content-between" style={{ marginLeft: '10vw' }} />
+                    <i
+                      className="bx bx-user justify-content-between"
+                      style={{ marginLeft: "10vw" }}
+                    />
                     {courses[id].available_seat} &nbsp;
                   </div>
                   <div className="course-info d-flex justify-content-between align-items-center">
                     <h5>Schedule</h5>
                     <p>5.00 pm - 7.00 pm</p>
                   </div>
-                  <section className="about" style={{ padding: 10 }}>
+
+
+                  {/* check if enrolled, put the zoom link , else put enroll button */}
+                {isenrolled? <Link href="/zoomlink"></Link> :  <section className="about" style={{ padding: 10 }}>
                     <form className="php-email-form">
-                      <div className='text-center '>
-                        <button className="px-5 btn btn-primary profile-button" type="submit" onClick={(e) => { e.preventDefault(); alert("Booked") }} style={{ margin: 'auto' }} >Enroll</button>
-                      </div></form>
-                  </section>
+                      <div className="text-center ">
+                        <button
+                          className="px-5 btn btn-primary profile-button"
+                          type="submit"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            alert("Booked");
+                          }}
+                          style={{ margin: "auto" }}
+                        >
+                          Enroll
+                        </button>
+                      </div>
+                    </form>
+                  </section>}
+                 
+
+
 
 
                 </div>
@@ -90,8 +112,6 @@ const CourseDetails = ({ courses, id }) => {
       {/* End Breadcrumbs */}
 
       <Footer />
-
-
     </>
   );
 };
