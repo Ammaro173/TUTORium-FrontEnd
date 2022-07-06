@@ -7,24 +7,26 @@ import axios from "axios";
 
 const Register = () => {
   const [userData, setUserData] = useState();
-  const [isTeacher, setIsTeacher] = useState(false)
+  const [isTeacher, setIsTeacher] = useState(true)
 
 
   const handleIsTeacher = ()=>{
     setIsTeacher(!isTeacher);
-    localStorage.setItem("isTeacher", true)
+    localStorage.setItem("isTeacher", isTeacher)
   }
 
   const handleChange = (e) => {
-    console.log(userData)
+    // console.log(userData)
     setUserData(
       Object.freeze({
         ...userData,
         [e.target.name]: e.target.value || null,
         
       })
+
     );
-    
+    localStorage.setItem("email", userData?.email)
+    console.log(userData)
   };
 
 
@@ -33,13 +35,15 @@ const Register = () => {
     console.log(userData);
 
     axios.post("http://tutorium.herokuapp.com/api/register/", userData).then((res) => {
-      Router.push("/ProfileEdit");
-      alert('Continue editing your profile..')
+      Router.push("/Login");
+      alert('You are now registered. welcome to Tutorium!..')
+      console.log(userData.first_name)
     }).catch((err)=>{
       console.log(err.request);
       console.log(err.response);
       console.log(err.message);
-    })
+    }) 
+    
   };
 
 
@@ -107,7 +111,7 @@ const Register = () => {
                         placeholder="Email"
                         name="email"
                         onChange={handleChange}
-                        type="email"
+                        type="text"
                       />
                     </div>
 
@@ -140,7 +144,7 @@ const Register = () => {
                     </div>
 
                     <label className="p-1">
-                      <input type="checkbox"  onClick={handleIsTeacher}/>
+                      <input type="checkbox" name="is_tutor" onClick={handleIsTeacher}/>
                       <span> </span>Register as Tutor
                     </label>
 

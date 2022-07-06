@@ -18,13 +18,10 @@ const Login = () => {
     });
   };
 
- 
-
   const getUserInfo = (token) => {
     var decoded = jwt_decode(token);
     return decoded;
   };
- 
 
   const checkUser = (username, password) => {
     if (localStorage.getItem("access_token")) {
@@ -34,13 +31,35 @@ const Login = () => {
       if (decodeToken.username == username) {
         setLogin(true);
         localStorage.setItem("login", true);
+
         Router.push("/");
+
+        const storageToken = localStorage.getItem("access_token");
+        const myEmail = localStorage.getItem("email")
+        console.log("hiu,", userData)
+        axios
+          .post(
+            "https://tutorium.herokuapp.com/api/visitor-post",
+            {
+              name: userData.username,
+              email: myEmail,
+              password: userData.password,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${storageToken}`,
+              },
+            }
+          )
+          .catch((err) => {
+            console.log(err);
+          });
       } else {
         Router.push("/Register");
         alert("You don't have an account! PLease Register.");
       }
     } else {
-      console.log(userData)
+      console.log(userData);
       axios
         .post("http://tutorium.herokuapp.com/api/token/", userData)
         .then((res) => {
@@ -48,7 +67,28 @@ const Login = () => {
 
           setLogin(true);
           localStorage.setItem("login", true);
+
           Router.push("/");
+          const storageToken = localStorage.getItem("access_token");
+          const myEmail = localStorage.getItem("email")
+          
+          axios
+            .post(
+              "https://tutorium.herokuapp.com/api/visitor-post",
+              {
+                name: userData.username,
+                email: myEmail,
+                password: userData.password,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${storageToken}`,
+                },
+              }
+            )
+            .catch((err) => {
+              console.log(err);
+            });
         })
         .catch((err) => {
           Router.push("/Register");
@@ -113,6 +153,7 @@ const Login = () => {
                         type="text"
                       />
                     </div>
+                    
                     <div className="form-group p-1">
                       <input
                         className="form-control"

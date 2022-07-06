@@ -1,11 +1,26 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import { useState } from "react";
-import Link from 'next/link'
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import axios from "axios";
 
 const CourseDetails = ({ courses, id }) => {
-  const [isenrolled, setIsenrolled] = useState(false)
+  const [isenrolled, setIsenrolled] = useState(false);
+  const [enrollCourse, setEnrolledCourses] = useState()
 
+
+  useEffect(()=>{
+    const mytoken = localStorage.getItem("access_token")
+    axios.put(`https://tutorium.herokuapp.com/api/visitor-rud/${id}`, {
+      headers: {
+        Authorization : ` Bearer ${mytoken}`,
+      },
+    }).then((res)=>{
+      console.log(res, "the course is enrolled")
+    }).catch((err)=>{
+      console.log(err)
+    })
+  })
 
   console.log("hiiiiiiii", courses[id]);
   return (
@@ -67,30 +82,31 @@ const CourseDetails = ({ courses, id }) => {
                     <p>5.00 pm - 7.00 pm</p>
                   </div>
 
-
                   {/* check if enrolled, put the zoom link , else put enroll button */}
-                {isenrolled? <Link href="/zoomlink"></Link> :  <section className="about" style={{ padding: 10 }}>
-                    <form className="php-email-form">
-                      <div className="text-center ">
-                        <button
-                          className="px-5 btn btn-primary profile-button"
-                          type="submit"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            alert("Booked");
-                          }}
-                          style={{ margin: "auto" }}
-                        >
-                          Enroll
-                        </button>
-                      </div>
-                    </form>
-                  </section>}
-                 
-
-
-
-
+                  {isenrolled ? (
+                    <Link href="/zoomlink"></Link>
+                  ) : (
+                    <section className="about" style={{ padding: 10 }}>
+                      <form
+                        className="php-email-form"
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          alert("Booked");
+                          enrollCourse.enrolled_courses.push(courses[id].name)
+                        }}
+                      >
+                        <div className="text-center ">
+                          <button
+                            className="px-5 btn btn-primary profile-button"
+                            type="submit"
+                            style={{ margin: "auto" }}
+                          >
+                            Enroll
+                          </button>
+                        </div>
+                      </form>
+                    </section>
+                  )}
                 </div>
               </div>
             </div>
