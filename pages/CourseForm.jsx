@@ -1,29 +1,47 @@
+import axios from "axios";
 import Link from "next/link";
 import React from "react";
 import { useState } from "react";
-
+import Router from "next/router";
 
 const CourseForm = () => {
   const [userData, setUserData] = useState();
 
-
   const handleChange = (e) => {
     setUserData({
-      ...userData, 
+      ...userData,
       [e.target.name]: e.target.value || null,
     });
-
+    console.log(userData)
   };
 
   const handleSubmit = () => {
-    axios.post("https://tutorium.herokuapp.com/api/course-post", userData)}
-
-
   
+    const storageToken = localStorage.getItem("access_token");
+    axios.post("https://tutorium.herokuapp.com/api/course-post", userData, {
+      headers: {
+        Authorization: `Bearer ${storageToken}`,
+      },
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+    // to empty the form (the select tag)
+    // Array.from(document.querySelectorAll("select")).forEach(option=>(option.value = null))
+    setUserData({});
+    Router.push('/Profile')
+
+    const id = localStorage.getItem("id")
+    axios.put(`http://tutorium.herokuapp.com/api/visitor-rud/${id}`,  {
+      headers: {
+        Authorization: `Bearer ${storageToken}`,
+      },
+    })
+  };
 
   return (
     <section className="about" id="profileform">
-      <form className="php-email-form" onSubmit={handleSubmit}>
+      <form className="php-email-form"  onSubmit={handleSubmit}>
         <div className="container rounded bg-white mt-5 mb-5 ">
           <div className="row">
             <div className="col-md-3 border-right"></div>
@@ -40,7 +58,7 @@ const CourseForm = () => {
                       className="form-control"
                       placeholder="Course Name"
                       defaultValue=""
-                      name = "name"
+                      name="name"
                       onChange={handleChange}
                     />
                   </div>
@@ -52,7 +70,7 @@ const CourseForm = () => {
                       placeholder="Short Description"
                       defaultValue=""
                       maxLength="250"
-                      name = "short_bio"
+                      name="short_bio"
                       onChange={handleChange}
                     />
                   </div>
@@ -63,7 +81,7 @@ const CourseForm = () => {
                       placeholder="More Details"
                       defaultValue=""
                       maxLength="1000"
-                      name = "description"
+                      name="description"
                       onChange={handleChange}
                     />
                   </div>
@@ -76,7 +94,7 @@ const CourseForm = () => {
                       placeholder="Price"
                       defaultValue=""
                       min="0"
-                      name = "price"
+                      name="price"
                       onChange={handleChange}
                     />
                   </div>
@@ -88,7 +106,7 @@ const CourseForm = () => {
                       defaultValue=""
                       placeholder="Number of Seats"
                       min="1"
-                      name = "available_seat"
+                      name="available_seat"
                       onChange={handleChange}
                     />
                   </div>
@@ -101,66 +119,69 @@ const CourseForm = () => {
                       className="form-control"
                       placeholder="Course Link"
                       defaultValue=""
-                      name = "zoom_link"
+                      name="zoom_link"
                       onChange={handleChange}
                     />
                   </div>
                   <div className="col-md-6">
                     <select
-                      class="form-select"
-                      className="form-control "
+                    name="course_category"
+                    type="text"
+                      // class="form-select"
+                      // className="form-control "
+                      onChange={handleChange}
                       aria-label="Default select example"
                     >
-                      <option selected style={{ color: "dimgrey" }}>
-                        Course Category
-                      </option>
-                      <option value="1">Arts and Crafts</option>
-                      <option value="2">Beauty</option>
-                      <option value="3">Agriculture</option>
+                      <option  >Choose:</option>
+                      
+                      <option  value="1">Arts and Crafts</option>
+                      <option value="3">Beauty</option>
+                      <option  value="2">Agriculture</option>
                       <option value="4">Business</option>
-                      <option value="5">Cooking</option>
-                      <option value="6">Health</option>
-                      <option value="7">Languages</option>
-                      <option value="8">Music</option>
-                      <option value="9">Sports</option>
-                      <option value="10">Technology</option>
-                      <option value="11">Sciences</option>
-                      <option value="12">Others</option>
+                      <option  value="5">Cooking</option>
+                      <option  value="6">Health</option>
+                      <option  value="7">Languages</option>
+                      <option  value="8">Music</option>
+                      <option  value="11">Sports</option>
+                      <option  value="12">Technology</option>
+                      <option  value="10">Sciences</option>
+                      <option  value="9">Others</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="row mt-3">
-                  <div className="col-md-6">
+                  {/* <div className="col-md-6">
                     <input
                       type="date"
                       className="form-control"
                       placeholder="Date"
                       min="0"
                     />
-                  </div>
+                  </div> */}
 
                   <div className="col-md-6">
-                  <input
-                      type="time"
+                    <input
+                      type="text"
                       className="form-control"
-                      placeholder="Time"
+                      name="schedule"
+                      placeholder="Date and Time"
+                      onChange={handleChange}
                       required
                     />
-                    </div>
+                  </div>
                 </div>
 
-
-
                 <div className="mt-5 text-center ">
-                  <Link href="/Profile">
+           
                     <button
                       className="btn btn-primary profile-button"
                       type="submit"
+                     
                     >
                       Add Course!
                     </button>
-                  </Link>
+                  
                 </div>
               </div>
             </div>

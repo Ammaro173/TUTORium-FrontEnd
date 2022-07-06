@@ -10,12 +10,13 @@ import Router from 'next/router';
 const Home = () => {
 
 
-
+const [path, setPath] = useState(false)
 
 
   const handleclick =()=>{
     if(!localStorage.getItem("login")){
-      confirm("Please Login first to see!")
+      confirm("Please Login first!")
+      setPath(true)
     };
   }
   
@@ -98,17 +99,19 @@ const Home = () => {
                     teachers!
                   </li>
                   <li>
-                    <i className="bi bi-check-circle" /> Classes can be arranged
-                    or held by our TUTORium video meetings!
-                  </li>
-                  <li>
-                    <i className="bi bi-check-circle" /> Students can easily
-                    check for the nearset, highest rating classes.
+                    <i className="bi bi-check-circle" /> Teachers can choose to enroll in any course!
                   </li>
                   <li>
                     <i className="bi bi-check-circle" /> Teachers/students can
                     choose to have private classes.
                   </li>
+                  <li>
+                    <i className="bi bi-check-circle" /> Teachers can easily add courses and students can easily enroll!
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle" /> Students can search for the courses they want in each category.
+                  </li>
+                  
                 </ul>
                 <p>
                   Our vision is to spread knowledge in all fields through giving
@@ -149,7 +152,7 @@ const Home = () => {
                     style={{ color: "#e361ff" }}
                   />
                   <h3>
-                    <a href="/Courses_Art" onClick={handleclick}>Arts and Crafts</a>
+                    {!path ? <a href="/Courses_Art" onClick={handleclick}>Arts and Crafts</a> :  <a href="/Login" >Arts and Crafts</a>}
                   </h3>
                 </div>
               </div>
@@ -160,7 +163,7 @@ const Home = () => {
                     style={{ color: "#ff5828" }}
                   />
                   <h3>
-                    <a href="/Courses_Tech" onClick={handleclick}>Technology</a>
+                  {!path ? <a href="/Courses_Tech" onClick={handleclick}>Technology</a> :  <a href="/Login" >Technology</a>}
                   </h3>
                 </div>
               </div>
@@ -171,7 +174,7 @@ const Home = () => {
                     style={{ color: "#e80368" }}
                   />
                   <h3>
-                    <a href="/Courses_Health" onClick={handleclick}>Health</a>
+                  {!path ? <a href="/Courses_Health" onClick={handleclick}>Health</a> :  <a href="/Login" >Health</a>}
                   </h3>
                 </div>
               </div>
@@ -182,7 +185,7 @@ const Home = () => {
                     style={{ color: "#b2904f" }}
                   />
                   <h3>
-                    <a href="/Courses_Sports" onClick={handleclick}>Sports</a>
+                  {!path ? <a href="/Courses_Sports" onClick={handleclick}>Sports</a> :  <a href="/Login" >Sports</a>}
                   </h3>
                 </div>
               </div>
@@ -193,7 +196,7 @@ const Home = () => {
                     style={{ color: "#47aeff" }}
                   />
                   <h3>
-                    <a href="/Courses_Sciences" onClick={handleclick}>Sciences</a>
+                  {!path ? <a href="/Courses_Sciences" onClick={handleclick}>Sciences</a> :  <a href="/Login" >Sciences</a>}
                   </h3>
                 </div>
               </div>
@@ -204,7 +207,7 @@ const Home = () => {
                     style={{ color: "#5578ff" }}
                   />
                   <h3>
-                    <a href="/Courses_Buisness" onClick={handleclick}>Business</a>
+                  {!path ? <a href="/Courses_Business" onClick={handleclick}>Business</a> :  <a href="/Login" >Business</a>}
                   </h3>
                 </div>
               </div>
@@ -215,7 +218,7 @@ const Home = () => {
                     style={{ color: "#11dbcf" }}
                   />
                   <h3>
-                    <a href="/Courses_Languages" onClick={handleclick}>Languages</a>
+                  {!path ? <a href="/Courses_Languages" onClick={handleclick}>Languages</a> :  <a href="/Login" >Languages</a>}
                   </h3>
                 </div>
               </div>
@@ -223,7 +226,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-markup-fill" style={{ color: "#4233ff" }} />
                   <h3>
-                    <a href="/Courses_Beauty" onClick={handleclick}>Beauty</a>
+                  {!path ? <a href="/Courses_Beauty" onClick={handleclick}>Beauty</a> :  <a href="/Login" >Beauty</a>}
                   </h3>
                 </div>
               </div>
@@ -234,7 +237,7 @@ const Home = () => {
                     style={{ color: "#ffa76e" }}
                   />
                   <h3>
-                    <a href="/Courses_Cooking" onClick={handleclick}>Cooking</a>
+                  {!path ? <a href="/Courses_Cooking" onClick={handleclick}>Cooking</a> :  <a href="/Login" >Cooking</a>}
                   </h3>
                 </div>
               </div>
@@ -243,7 +246,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className=" ri-earth-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                    <a href="/Courses_Agriculture" onClick={handleclick}>Agriculture</a>
+                  {!path ? <a href="/Courses_Agriculture" onClick={handleclick}>Agriculture</a> :  <a href="/Login" >Agriculture</a>}
                   </h3>
                 </div>
               </div>
@@ -251,7 +254,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-disc-line" style={{ color: "#b20969" }} />
                   <h3>
-                    <a href="/Courses_Music" onClick={handleclick}>Music</a>
+                  {!path ? <a href="/Courses_Music" onClick={handleclick}>Music</a> :  <a href="/Login" >Music</a>}
                   </h3>
                 </div>
               </div>
@@ -262,7 +265,7 @@ const Home = () => {
                     style={{ color: "#29cc61" }}
                   />
                   <h3>
-                    <a href="/Courses_Others" onClick={handleclick}>Others</a>
+                  {!path ? <a href="/Others" onClick={handleclick}>Others</a> :  <a href="/Login" >Others</a>}
                   </h3>
                 </div>
               </div>

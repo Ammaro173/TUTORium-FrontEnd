@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 const Contact = () => {
   function sendEmail(e) {
     e.preventDefault();
+    alert("Your message was sent. Thank you for contacting us!")
 
     emailjs.sendForm(
       "service_lx0hh2b",
@@ -53,21 +54,22 @@ const Contact = () => {
                   <div className="address">
                     <i className="bi bi-geo-alt" />
                     <h4>Location:</h4>
-                    <p>A108 Adam Street, New York, NY 535022</p>
+                    <p>Amman - Jordan</p>
                   </div>
                   <div className="email">
                     <i className="bi bi-envelope" />
                     <h4>Email:</h4>
-                    <p>info@example.com</p>
+                    <p>ammaraf97@hotmail.com</p>
                   </div>
                   <div className="phone">
                     <i className="bi bi-phone" />
                     <h4>Call:</h4>
-                    <p>+1 5589 55488 55s</p>
+                    <p>+962 796 284 286</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-8 mt-5 mt-lg-0">
+
                 <form
                   action="forms/contact.php"
                   method="post"
@@ -118,7 +120,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="my-3">
-                    <div className="loading">Loading</div>
+                  
                     <div className="error-message" />
                     <div className="sent-message">
                       Your message has been sent. Thank you!

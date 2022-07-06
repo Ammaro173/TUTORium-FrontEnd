@@ -9,11 +9,11 @@ import axios from "axios";
 const Profile = () => {
   const [teacher, setTeacher] = useState(false);
   const [courseForm, setCourseForm] = useState(false);
-  const [CourseData, setCoursesData] = useState([]);
 
 
 
-  ///// name is not defined, useState initial value is empty,,
+  const [userData, setUserData] = useState([]);
+
 
   useEffect(() => {
     if (localStorage.getItem("isTeacher")) {
@@ -28,29 +28,28 @@ const Profile = () => {
 
   useEffect(() => {
     const storageToken = localStorage.getItem("access_token");
+    const getEmail = localStorage.getItem("email")
     axios
-      .get("http://tutorium.herokuapp.com/api/tutor", {
+      .get("http://tutorium.herokuapp.com/api/visitor", {
         headers: {
           Authorization: `Bearer ${storageToken}`,
         },
-      })
-      .then((res) => {
-        // let data = res.data
-        setCoursesData(res.data)
-        console.log(res.data)
-        // let arr = [];
-        // res.data.length > 0 &&
-        //   res.data.map((ele) => {
-        //     arr.push(ele);
-        //   });
-        // setCoursesData([...arr]);
-        // console.log(res.data);
-      })
-      .catch((err) => {
-        console.log("im err", err);
-      });
-  }, []);
+      }).then((res) => {
+        let arr = [];
+        res.data.length > 0 &&
+          res.data.map((ele) => {
+            if (ele.email === getEmail) {
+              arr.push(ele);
+              console.log(arr);
+            }
+          });
 
+          setUserData([...arr]);
+          localStorage.setItem("id", userData[0]?.id)
+      })
+      
+
+  }, []);
   return (
     <>
       <link
@@ -69,133 +68,126 @@ const Profile = () => {
 
       {/* {CourseData.length > 0 &&
         CourseData.map((ele) => ( */}
-          <div key={CourseData.id}>
-            <section id="profileform" className="about">
-              <form className="php-email-form">
-                <div className="container rounded bg-white mt-5 mb-5">
-                  <div className="row">
-                    <div className="col-md-3 border-right">
-                      <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                        <img
-                          className="rounded-circle mt-5"
-                          width="150px"
-                          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                        />
+      <div >
+        <section id="profileform" className="about">
+          <form className="php-email-form">
+            <div className="container rounded bg-white mt-5 mb-5">
+              <div className="row">
+                <div className="col-md-3 border-right">
+                  <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img
+                      className="rounded-circle mt-5"
+                      width="150px"
+                      src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                    />
 
-                        <span className="text-black-50">
-                          edogaru@mail.com.my
-                        </span>
+                    <span className="text-black-50">{userData[0]?.email}</span>
 
-                        <Link href="/ProfileEdit">
-                          <button
-                            className="btn btn-primary profile-button"
-                            type="submit"
-                          >
-                            Edit Profile
-                          </button>
-                        </Link>
-                        <span> </span>
-                      </div>
-                    </div>
-
-                    <div className="col-md-4 border-right">
-                      <div className="p-3 py-5">
-                        <div className="d-flex justify-content-between align-items-center mb-3">
-                          <h4 className="text-right pt-5">{CourseData.name}</h4>
-                        </div>
-
-                        <div className="row mt-3 w-auto">
-                          <p className="pt-2 ">
-                            Hello, this is the biofefwbf rfnnnnnnnnn
-                          </p>
-
-                          <h5 className="pt-3 ">Education</h5>
-                          <p className="pt-2 ">Put education here</p>
-                          <h5 className="pt-3 ">Experiences</h5>
-                          <p className="pt-2 ">Experiences here</p>
-
-                          <p className="pt-5 ">Location: your location</p>
-                          <p>Phone number</p>
-                        </div>
-                      </div>
-                      <div className="mt-2 text-center "></div>
-                    </div>
-
-                    <div className="col-md-4 ">
-                      <div className="p-3 py-5">
-                        <div className="col-mg-4 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                          <h4 className="text-right pt-5">
-                            My Enrolled Courses
-                          </h4>
-
-                          <ul className="pt-2">
-                            <li>
-                              <i className="bi bi-check-circle" />
-                              <Link href="/">Course Name</Link>
-                            </li>
-                            <li>
-                              <i className="bi bi-check-circle" />
-                              <Link href="/">Course Name</Link>
-                            </li>
-                            <li>
-                              <i className="bi bi-check-circle" />
-                              <Link href="/">Course Name</Link>
-                            </li>
-                            <li>
-                              <i className="bi bi-check-circle" />
-                              <Link href="/">Course Name</Link>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      {/* only for teachers */}
-
-                      {teacher ? (
-                        <div className="p-3 py-1 ">
-                          <div className="col-mg-4 pt-lg-0 order-2 order-lg-1 content">
-                            <h4 className="text-right ">
-                              My Submitted Courses
-                            </h4>
-
-                            <ul className="pt-3">
-                              <li>
-                                <i className="bi bi-check-circle" />{" "}
-                                <Link href="/">Course Name</Link>
-                              </li>
-                              <li>
-                                <i className="bi bi-check-circle" />
-                                <Link href="/">Course Name</Link>
-                              </li>
-                              <li>
-                                <i className="bi bi-check-circle" />
-                                <Link href="/">Course Name</Link>
-                              </li>
-                              <li>
-                                <i className="bi bi-check-circle" />
-                                <Link href="/">Course Name</Link>
-                              </li>
-                            </ul>
-
-                            <button
-                              onClick={handleCourseForm}
-                              className="btn btn-primary profile-button mb-3"
-                              type="submit"
-                            >
-                              Add Courses
-                            </button>
-                          </div>
-                        </div>
-                      ) : null}
-
-                      {/* {courseForm ? <CourseForm/> : null} */}
-                    </div>
+                    <Link href="/ProfileEdit">
+                      <button
+                        className="btn btn-primary profile-button"
+                        type="submit"
+                      >
+                        Edit Profile
+                      </button>
+                    </Link>
+                    <span> </span>
                   </div>
                 </div>
-              </form>
-            </section>
-          </div>
-       
+
+                <div className="col-md-4 border-right">
+                  <div className="p-3 py-5">
+                    <div className="d-flex justify-content-between align-items-center mb-3">
+                      <h4 className="text-right pt-5">{userData[0]?.name}</h4>
+                    </div>
+
+                    <div className="row mt-3 w-auto">
+                      <p className="pt-2 ">
+                        {userData[0]?.bio}
+                      </p>
+
+                      <h5 className="pt-3 ">Education and experience</h5>
+                      <p className="pt-2 ">{userData[0]?.Education}</p>
+                     
+                 
+
+                      <p className="pt-5 ">Location: {userData[0]?.city} | {userData[0]?.country}</p>
+                      <p>Phone number: {userData[0]?.phone_number}</p>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-center "></div>
+                </div>
+
+                <div className="col-md-4 ">
+                  <div className="p-3 py-5">
+                    <div className="col-mg-4 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                      <h4 className="text-right pt-5">My Enrolled Courses</h4>
+
+                      <ul className="pt-2">
+                        <li>
+                          <i className="bi bi-check-circle" />
+                          <Link href="/">Course Name</Link>
+                        </li>
+                        <li>
+                          <i className="bi bi-check-circle" />
+                          <Link href="/">Course Name</Link>
+                        </li>
+                        <li>
+                          <i className="bi bi-check-circle" />
+                          <Link href="/">Course Name</Link>
+                        </li>
+                        <li>
+                          <i className="bi bi-check-circle" />
+                          <Link href="/">Course Name</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* only for teachers */}
+
+                  {teacher ? (
+                    <div className="p-3 py-1 ">
+                      <div className="col-mg-4 pt-lg-0 order-2 order-lg-1 content">
+                        <h4 className="text-right ">My Submitted Courses</h4>
+
+                        <ul className="pt-3">
+                          <li>
+                            <i className="bi bi-check-circle" />{" "}
+                            <Link href="/">Course Name</Link>
+                          </li>
+                          <li>
+                            <i className="bi bi-check-circle" />
+                            <Link href="/">Course Name</Link>
+                          </li>
+                          <li>
+                            <i className="bi bi-check-circle" />
+                            <Link href="/">Course Name</Link>
+                          </li>
+                          <li>
+                            <i className="bi bi-check-circle" />
+                            <Link href="/">Course Name</Link>
+                          </li>
+                        </ul>
+
+                        <button
+                          onClick={handleCourseForm}
+                          className="btn btn-primary profile-button mb-3"
+                          type="submit"
+                        >
+                          Add Courses
+                        </button>
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {/* {courseForm ? <CourseForm/> : null} */}
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
 
       {courseForm ? <CourseForm /> : null}
 
