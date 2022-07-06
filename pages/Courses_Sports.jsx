@@ -37,7 +37,7 @@ const Courses = () => {
         let arr = [];
         res.data.length > 0 &&
           res.data.map((ele) => {
-            if (ele.course_category === "Sports") {
+            if (ele.course_category === 11) {
               arr.push(ele);
             }
           });
@@ -125,6 +125,7 @@ const Courses = () => {
                       <div className="course-content">
                         <div className="d-flex justify-content-between align-items-center mb-3">
                           <h3>
+                            <div>
                             <Link href="#courseDetails">
                               <a
                                 href="#courseDetails"
@@ -137,6 +138,7 @@ const Courses = () => {
                                 {ele.name}
                               </a>
                             </Link>
+                            </div>
                           </h3>
                           <p className="price">{ele.price}$</p>
                         </div>

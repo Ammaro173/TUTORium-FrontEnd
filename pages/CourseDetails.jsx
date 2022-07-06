@@ -72,7 +72,7 @@ const CourseDetails = ({ courses, id }) => {
 
                   {/* check if enrolled, put the zoom link , else put enroll button */}
                   {isenrolled ? (
-                    <Link href="/zoomlink"></Link>
+                    <div><Link href="/zoomlink"></Link></div>
                   ) : (
                     <section className="about" style={{ padding: 10 }}>
                       <form

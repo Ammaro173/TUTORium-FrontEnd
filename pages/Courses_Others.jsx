@@ -37,7 +37,7 @@ const Courses = () => {
         let arr = [];
         res.data.length > 0 &&
           res.data.map((ele) => {
-            if (ele.course_category === "Others") {
+            if (ele.course_category === 9) {
               arr.push(ele);
             }
           });
