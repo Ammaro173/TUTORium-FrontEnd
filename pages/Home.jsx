@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import axios from "axios";
+import Image from "next/image";
 
 const Home = () => {
   const [path, setPath] = useState(false);
@@ -41,43 +42,36 @@ const Home = () => {
 
   return (
     <>
-      
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet"
-          />
+      <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet"
+      />
 
-          <link
-            href="assets/vendor/bootstrap/css/bootstrap.min.css"
-            rel="stylesheet"
-          />
+      <link
+        href="assets/vendor/bootstrap/css/bootstrap.min.css"
+        rel="stylesheet"
+      />
 
-          <link
-            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-            rel="stylesheet"
-          />
+      <link
+        href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+        rel="stylesheet"
+      />
 
-          <link
-            href="assets/vendor/boxicons/css/boxicons.min.css"
-            rel="stylesheet"
-          />
-       
-     
-          <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-     
+      <link
+        href="assets/vendor/boxicons/css/boxicons.min.css"
+        rel="stylesheet"
+      />
 
+      <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
 
-          <link
-            href="assets/vendor/swiper/swiper-bundle.min.css"
-            rel="stylesheet"
-          />
- 
-      
+      <link
+        href="assets/vendor/swiper/swiper-bundle.min.css"
+        rel="stylesheet"
+      />
 
       {/* Template Main CSS File */}
 
-          <link href="assets/css/style.css" rel="stylesheet" />
-        
+      <link href="assets/css/style.css" rel="stylesheet" />
 
       <Navbar />
 
@@ -174,11 +168,15 @@ const Home = () => {
                   />
                   <h3>
                     {path ? (
-                     <div><Link href="/Courses_Art"><a href="/Courses_Art" onClick={handleclick}>
-                     Arts and Crafts
-                   </a></Link></div> 
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Art">Arts and Crafts</Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Arts and Crafts</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                         Arts and Crafts
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -191,11 +189,19 @@ const Home = () => {
                   />
                   <h3>
                     {path ? (
-                      <div><Link href="/Courses_Tech" ><a href="/Courses_Tech" onClick={handleclick}>
-                      Technology
-                    </a></Link></div>
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Tech">
+                          
+                            Technology
+                      
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Technology</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                          Technology
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -208,11 +214,19 @@ const Home = () => {
                   />
                   <h3>
                     {path ? (
-                      <div><Link href="/Courses_Health"><a href="/Courses_Health" onClick={handleclick}>
-                      Health
-                    </a></Link></div>
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Health">
+                          
+                            Health
+                         
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Health</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                        Health
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -225,11 +239,19 @@ const Home = () => {
                   />
                   <h3>
                     {path ? (
-                      <div><Link href="/Courses_Sports" ><a href="/Courses_Sports" onClick={handleclick}>
-                      Sports
-                    </a></Link></div>
+                      <div onClick={handleclick}> 
+                        <Link href="/Courses_Sports">
+                          
+                            Sports
+                      
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Sports</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                         Sports
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -242,11 +264,19 @@ const Home = () => {
                   />
                   <h3>
                     {path ? (
-                      <div><Link href="/Courses_Sciences"><a href="/Courses_Sciences" onClick={handleclick}>
-                      Sciences
-                    </a></Link></div>
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Sciences">
+                          
+                            Sciences
+                          
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Sciences</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                        Sciences
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -258,12 +288,20 @@ const Home = () => {
                     style={{ color: "#5578ff" }}
                   />
                   <h3>
-                  {path ? (
-                      <div><Link href="/Courses_Business"><a href="/Courses_Business" onClick={handleclick}>
-                      Business
-                    </a></Link></div>
+                    {path ? (
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Business">
+                       
+                            Business
+                         
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Business</a></Link></div>
+                      <div >
+                        <Link href="/Login">
+                         Business
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -275,12 +313,20 @@ const Home = () => {
                     style={{ color: "#11dbcf" }}
                   />
                   <h3>
-                  {path ? (
-                      <div><Link href="/Courses_Languages"><a href="/Courses_Languages" onClick={handleclick}>
-                      Languages
-                    </a></Link></div>
+                    {path ? (
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Languages">
+                          
+                            Languages
+                          
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Languages</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                          Languages
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -289,12 +335,20 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-markup-fill" style={{ color: "#4233ff" }} />
                   <h3>
-                  {path ? (
-                      <div><Link href="/Courses_Beauty"><a href="/Courses_Beauty" onClick={handleclick}>
-                      Beauty
-                    </a></Link></div>
+                    {path ? (
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Beauty">
+                          
+                            Beauty
+                         
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Beauty</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                      Beauty
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -306,12 +360,20 @@ const Home = () => {
                     style={{ color: "#ffa76e" }}
                   />
                   <h3>
-                  {path ? (
-                      <div><Link href="/Courses_Cooking"><a href="/Courses_Cooking" onClick={handleclick}>
-                      Cooking
-                    </a></Link></div>
+                    {path ? (
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Cooking">
+                         
+                            Cooking
+                        
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Cooking</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                      Cooking
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -321,12 +383,20 @@ const Home = () => {
                 <div className="icon-box">
                   <i className=" ri-earth-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                  {path ? (
-                      <div><Link href="/Courses_Agriculture"><a href="/Courses_Agriculture" onClick={handleclick}>
-                      Agriculture
-                    </a></Link></div>
+                    {path ? (
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Agriculture">
+                       
+                            Agriculture
+                         
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Agriculture</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                    Agriculture
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -335,12 +405,20 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-disc-line" style={{ color: "#b20969" }} />
                   <h3>
-                  {path ? (
-                      <div><Link href="/Courses_Music"><a href="/Courses_Music" onClick={handleclick}>
-                      Music
-                    </a></Link></div>
+                    {path ? (
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Music">
+                          
+                            Music
+                   
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Music</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                          Music
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
@@ -352,12 +430,20 @@ const Home = () => {
                     style={{ color: "#29cc61" }}
                   />
                   <h3>
-                  {path ? (
-                      <div><Link href="/Courses_Others"><a href="/Courses_Others" onClick={handleclick}>
-                      Others
-                    </a></Link></div>
+                    {path ? (
+                      <div onClick={handleclick}>
+                        <Link href="/Courses_Others">
+                    
+                            Others
+                         
+                        </Link>
+                      </div>
                     ) : (
-                      <div><Link href="/Login"><a href="/Login">Others</a></Link></div>
+                      <div>
+                        <Link href="/Login">
+                      Others
+                        </Link>
+                      </div>
                     )}
                   </h3>
                 </div>
