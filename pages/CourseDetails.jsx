@@ -9,18 +9,6 @@ const CourseDetails = ({ courses, id }) => {
   const [enrollCourse, setEnrolledCourses] = useState()
 
 
-  useEffect(()=>{
-    const mytoken = localStorage.getItem("access_token")
-    axios.put(`https://tutorium.herokuapp.com/api/visitor-rud/${id}`, {
-      headers: {
-        Authorization : ` Bearer ${mytoken}`,
-      },
-    }).then((res)=>{
-      console.log(res, "the course is enrolled")
-    }).catch((err)=>{
-      console.log(err)
-    })
-  })
 
   console.log("hiiiiiiii", courses[id]);
   return (

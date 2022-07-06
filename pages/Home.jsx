@@ -21,10 +21,11 @@ const Home = () => {
       })
       .then((res) => {
         let arr = [];
-        res.data.length > 0 &&
-          res.data.map((ele) => {
-            arr.push(ele);
-          })
+        arr.push(res.data)
+        // res.data.length > 0 &&
+        //   res.data.map((ele) => {
+        //     arr.push(ele);
+        //   })
           setCourses([...arr])
       }).catch((err)=>{
         console.log(err)

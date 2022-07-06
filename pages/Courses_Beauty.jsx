@@ -13,23 +13,23 @@ const Courses = () => {
   const [curr, setCurr] = useState([]);
   const [CourseData, setCoursesData] = useState([]);
 
-  // search bar
-  const [data, setData] = useState([]);
-  const [value, setValue] = useState("");
+  // // search bar
+  // const [data, setData] = useState([]);
+  // const [value, setValue] = useState("");
 
-  // search bar
-  const handelSearch = async (e) => {
-    e.preventDefault();
-    const storageToken = localStorage.getItem("access_token");
-    return await axios.get(`http://tutorium.herokuapp.com/api/courses?token=${storageToken}?q=${value}`, {
-      headers: {
-        Authorization: `Bearer ${storageToken}`,
-      },
-    }).then((response) => {
-      console.log(response.data)
-      setData(response.data), setValue("");
-    });
-  };
+  // // search bar
+  // const handelSearch = async (e) => {
+  //   e.preventDefault();
+  //   const storageToken = localStorage.getItem("access_token");
+  //   return await axios.get(`http://tutorium.herokuapp.com/api/courses?token=${storageToken}?q=${value}`, {
+  //     headers: {
+  //       Authorization: `Bearer ${storageToken}`,
+  //     },
+  //   }).then((response) => {
+  //     console.log(response.data)
+  //     setData(response.data), setValue("");
+  //   });
+  // };
 
   useEffect(() => {
     const storageToken = localStorage.getItem("access_token");
@@ -94,7 +94,7 @@ const Courses = () => {
         {/* End Breadcrumbs */}
 
         {/* search bar form */}
-        <form
+        {/* <form
           className="form-inline d-flex justify-content-center md-form form-sm mt-3"
           style={{ width: "40vw", gap: "15px", margin: "auto" }}
           
@@ -114,7 +114,7 @@ const Courses = () => {
             onClick={handelSearch}
           ></i>
         
-        </form>
+        </form> */}
 
         <section section id="courses" className="courses">
           <div className="container">
