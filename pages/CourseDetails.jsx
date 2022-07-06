@@ -70,15 +70,14 @@ const CourseDetails = ({ courses, id }) => {
 
                   {/* check if enrolled, put the zoom link , else put enroll button */}
                 {isenrolled? <Link href="/zoomlink"></Link> :  <section className="about" style={{ padding: 10 }}>
-                    <form className="php-email-form">
+                    <form className="php-email-form" onSubmit={(e) => {
+                            e.preventDefault();
+                            alert("Booked");}}>
                       <div className="text-center ">
                         <button
                           className="px-5 btn btn-primary profile-button"
                           type="submit"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            alert("Booked");
-                          }}
+                          
                           style={{ margin: "auto" }}
                         >
                           Enroll

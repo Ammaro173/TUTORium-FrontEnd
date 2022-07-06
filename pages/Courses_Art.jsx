@@ -13,17 +13,7 @@ const Courses = () => {
   const [curr, setCurr] = useState([]);
   const [CourseData, setCoursesData] = useState([]);
 
-  // search bar
-  const [data, setData] = useState([]);
-  const [value, setValue] = useState("");
 
-  // search bar
-  const handelSearch = async (e) => {
-    e.preventDefault();
-    return await axios.get(`?q=${value}`).then((response) => {
-      setData(response.data), setValue("");
-    });
-  };
 
   useEffect(() => {
     const storageToken = localStorage.getItem("access_token");
@@ -48,6 +38,27 @@ const Courses = () => {
         console.log("im err", err);
       });
   }, []);
+
+
+    // search bar
+    const [data, setData] = useState([]);
+    const [value, setValue] = useState("");
+  
+    // search bar
+    const handelSearch = async (e) => {
+      
+      e.preventDefault();
+      const storageToken = localStorage.getItem("access_token");
+      return axios.get(`http://tutorium.herokuapp.com/api/courses?q=${value}`, {
+        headers: {
+          Authorization: `Bearer ${storageToken}`,
+        },
+      }).then((response) => {
+        setData(response.data), setValue("");
+        console.log(response.data);
+      });
+      
+    };
 
   return (
     <>

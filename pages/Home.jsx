@@ -1,11 +1,23 @@
 
 import Navbar from './Navbar'
 import Footer from "./Footer";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
+
+
 
 const Home = () => {
 
+
+
+
+
+  const handleclick =()=>{
+    if(!localStorage.getItem("login")){
+      confirm("Please Login first to see!")
+    };
+  }
   
   return (
     <>
@@ -137,7 +149,7 @@ const Home = () => {
                     style={{ color: "#e361ff" }}
                   />
                   <h3>
-                    <a href="/Courses_Art">Arts and Crafts</a>
+                    <a href="/Courses_Art" onClick={handleclick}>Arts and Crafts</a>
                   </h3>
                 </div>
               </div>
@@ -148,7 +160,7 @@ const Home = () => {
                     style={{ color: "#ff5828" }}
                   />
                   <h3>
-                    <a href="/Courses_Tech">Technology</a>
+                    <a href="/Courses_Tech" onClick={handleclick}>Technology</a>
                   </h3>
                 </div>
               </div>
@@ -159,7 +171,7 @@ const Home = () => {
                     style={{ color: "#e80368" }}
                   />
                   <h3>
-                    <a href="/Courses_Health">Health</a>
+                    <a href="/Courses_Health" onClick={handleclick}>Health</a>
                   </h3>
                 </div>
               </div>
@@ -170,7 +182,7 @@ const Home = () => {
                     style={{ color: "#b2904f" }}
                   />
                   <h3>
-                    <a href="/Courses_Sports">Sports</a>
+                    <a href="/Courses_Sports" onClick={handleclick}>Sports</a>
                   </h3>
                 </div>
               </div>
@@ -181,7 +193,7 @@ const Home = () => {
                     style={{ color: "#47aeff" }}
                   />
                   <h3>
-                    <a href="/Courses_Sciences">Sciences</a>
+                    <a href="/Courses_Sciences" onClick={handleclick}>Sciences</a>
                   </h3>
                 </div>
               </div>
@@ -192,7 +204,7 @@ const Home = () => {
                     style={{ color: "#5578ff" }}
                   />
                   <h3>
-                    <a href="/Courses_Buisness">Business</a>
+                    <a href="/Courses_Buisness" onClick={handleclick}>Business</a>
                   </h3>
                 </div>
               </div>
@@ -203,7 +215,7 @@ const Home = () => {
                     style={{ color: "#11dbcf" }}
                   />
                   <h3>
-                    <a href="/Courses_Languages">Languages</a>
+                    <a href="/Courses_Languages" onClick={handleclick}>Languages</a>
                   </h3>
                 </div>
               </div>
@@ -211,7 +223,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-markup-fill" style={{ color: "#4233ff" }} />
                   <h3>
-                    <a href="/Courses_Beauty">Beauty</a>
+                    <a href="/Courses_Beauty" onClick={handleclick}>Beauty</a>
                   </h3>
                 </div>
               </div>
@@ -222,7 +234,7 @@ const Home = () => {
                     style={{ color: "#ffa76e" }}
                   />
                   <h3>
-                    <a href="/Courses_Cooking">Cooking</a>
+                    <a href="/Courses_Cooking" onClick={handleclick}>Cooking</a>
                   </h3>
                 </div>
               </div>
@@ -231,7 +243,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className=" ri-earth-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                    <a href="/Courses_Agriculture">Agriculture</a>
+                    <a href="/Courses_Agriculture" onClick={handleclick}>Agriculture</a>
                   </h3>
                 </div>
               </div>
@@ -239,7 +251,7 @@ const Home = () => {
                 <div className="icon-box">
                   <i className="ri-disc-line" style={{ color: "#b20969" }} />
                   <h3>
-                    <a href="/Courses_Music">Music</a>
+                    <a href="/Courses_Music" onClick={handleclick}>Music</a>
                   </h3>
                 </div>
               </div>
@@ -250,7 +262,7 @@ const Home = () => {
                     style={{ color: "#29cc61" }}
                   />
                   <h3>
-                    <a href="/Courses_Others">Others</a>
+                    <a href="/Courses_Others" onClick={handleclick}>Others</a>
                   </h3>
                 </div>
               </div>

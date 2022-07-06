@@ -121,7 +121,7 @@ const Navbar = ({ login, setLogin }) => {
 
         {isLoggedin ? (
           <div>
-            <Link href="/Logout" className="get-started-btn">
+            <Link href="/Logout" className="get-started-btn" >
               Logout
             </Link>
           </div>
