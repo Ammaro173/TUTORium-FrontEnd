@@ -27,7 +27,7 @@ const Courses = () => {
         let arr = [];
         res.data.length > 0 &&
           res.data.map((ele) => {
-            if (ele.course_category === "Arts and Crafts") {
+            if (ele.course_category === 1) {
               arr.push(ele);
             }
           });
@@ -40,13 +40,14 @@ const Courses = () => {
   }, []);
 
 
+
+
     // search bar
     const [data, setData] = useState([]);
     const [value, setValue] = useState("");
   
     // search bar
     const handelSearch = async (e) => {
-      
       e.preventDefault();
       const storageToken = localStorage.getItem("access_token");
       return axios.get(`http://tutorium.herokuapp.com/api/courses?q=${value}`, {
@@ -59,6 +60,8 @@ const Courses = () => {
       });
       
     };
+
+
 
   return (
     <>

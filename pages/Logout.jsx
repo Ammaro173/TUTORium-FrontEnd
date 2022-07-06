@@ -14,6 +14,8 @@ useEffect(()=>{
     axios.defaults.headers['Authorization'] = null;
     
     localStorage.removeItem("login")
+    localStorage.removeItem("id")
+
     Router.push('/Login')
   });
 

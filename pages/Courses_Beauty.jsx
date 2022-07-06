@@ -20,7 +20,13 @@ const Courses = () => {
   // search bar
   const handelSearch = async (e) => {
     e.preventDefault();
-    return await axios.get(`?q=${value}`).then((response) => {
+    const storageToken = localStorage.getItem("access_token");
+    return await axios.get(`http://tutorium.herokuapp.com/api/courses?token=${storageToken}?q=${value}`, {
+      headers: {
+        Authorization: `Bearer ${storageToken}`,
+      },
+    }).then((response) => {
+      console.log(response.data)
       setData(response.data), setValue("");
     });
   };
@@ -37,7 +43,7 @@ const Courses = () => {
         let arr = [];
         res.data.length > 0 &&
           res.data.map((ele) => {
-            if (ele.course_category === "Beauty") {
+            if (ele.course_category === 3) {
               arr.push(ele);
             }
           });
@@ -48,6 +54,8 @@ const Courses = () => {
         console.log("im err", err);
       });
   }, []);
+
+
 
   return (
     <>
@@ -89,6 +97,7 @@ const Courses = () => {
         <form
           className="form-inline d-flex justify-content-center md-form form-sm mt-3"
           style={{ width: "40vw", gap: "15px", margin: "auto" }}
+          
         >
           <input
             className="form-control form-control-sm ml-3 w-75"
@@ -101,9 +110,10 @@ const Courses = () => {
 
           <i
             class="bi bi-search"
-            onClick={handelSearch}
             style={{ transform: "scale(1.2)" }}
+            onClick={handelSearch}
           ></i>
+        
         </form>
 
         <section section id="courses" className="courses">

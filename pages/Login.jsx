@@ -31,6 +31,7 @@ const Login = () => {
       if (decodeToken.username == username) {
         setLogin(true);
         localStorage.setItem("login", true);
+
         Router.push("/");
 
         const storageToken = localStorage.getItem("access_token");
@@ -66,10 +67,11 @@ const Login = () => {
 
           setLogin(true);
           localStorage.setItem("login", true);
+
           Router.push("/");
           const storageToken = localStorage.getItem("access_token");
           const myEmail = localStorage.getItem("email")
-          console.log("hiu,", userData)
+          
           axios
             .post(
               "https://tutorium.herokuapp.com/api/visitor-post",

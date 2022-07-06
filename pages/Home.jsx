@@ -1,28 +1,47 @@
-
-import Navbar from './Navbar'
+import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Router from 'next/router';
-
-
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Router from "next/router";
+import axios from "axios";
 
 const Home = () => {
 
+  const [path, setPath] = useState(false);
+  const [courses, setCourses] = useState([]);
 
-const [path, setPath] = useState(false)
+
+  useEffect(() => {
+    const storageToken = localStorage.getItem("access_token");
+    axios
+      .get("http://tutorium.herokuapp.com/api/courses", {
+        headers: {
+          Authorization: ` Bearer ${storageToken}`,
+        },
+      })
+      .then((res) => {
+        let arr = [];
+        res.data.length > 0 &&
+          res.data.map((ele) => {
+            arr.push(ele);
+          })
+          setCourses([...arr])
+      }).catch((err)=>{
+        console.log(err)
+      })
+      console.log(courses)
+  }, []);
 
 
-  const handleclick =()=>{
-    if(!localStorage.getItem("login")){
-      confirm("Please Login first!")
-      setPath(true)
-    };
-  }
-  
+  const handleclick = () => {
+    if (!localStorage.getItem("login")) {
+      confirm("Please Login first!");
+      setPath(true);
+    }
+  };
+
   return (
     <>
-
       <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet"
@@ -48,18 +67,13 @@ const [path, setPath] = useState(false)
       {/* Template Main CSS File */}
       <link href="assets/css/style.css" rel="stylesheet" />
 
-
-
       <Navbar />
-
-
 
       {/* ======= Hero Section ======= */}
       <section
         id="hero"
         className="d-flex justify-content-center align-items-center"
       >
-
         <div className="container position-relative" data-aos-delay={100}>
           <h1>
             Learning Today,
@@ -69,15 +83,14 @@ const [path, setPath] = useState(false)
           <h2>
             Welcome To TUTORium, <br /> Where You Can Learn Or Teach Anything!
           </h2>
-          <Link href="/#features"><a href="/#features" className="btn-get-started">
-            Get Started!
-          </a></Link>
+          <Link href="/#features">
+            <a href="/#features" className="btn-get-started">
+              Get Started!
+            </a>
+          </Link>
         </div>
       </section>
       {/* End Hero */}
-
-
-
 
       <main id="main">
         {/* ======= About Section ======= */}
@@ -99,19 +112,21 @@ const [path, setPath] = useState(false)
                     teachers!
                   </li>
                   <li>
-                    <i className="bi bi-check-circle" /> Teachers can choose to enroll in any course!
+                    <i className="bi bi-check-circle" /> Teachers can choose to
+                    enroll in any course!
                   </li>
                   <li>
                     <i className="bi bi-check-circle" /> Teachers/students can
                     choose to have private classes.
                   </li>
                   <li>
-                    <i className="bi bi-check-circle" /> Teachers can easily add courses and students can easily enroll!
+                    <i className="bi bi-check-circle" /> Teachers can easily add
+                    courses and students can easily enroll!
                   </li>
                   <li>
-                    <i className="bi bi-check-circle" /> Students can search for the courses they want in each category.
+                    <i className="bi bi-check-circle" /> Students can search for
+                    the courses they want in each category.
                   </li>
-                  
                 </ul>
                 <p>
                   Our vision is to spread knowledge in all fields through giving
@@ -124,23 +139,15 @@ const [path, setPath] = useState(false)
         </section>
         {/* End About Section */}
 
-
-
-
-
         {/* ======= Counts Section ======= */}
         <section id="counts" className="counts section-bg mb-4"></section>
         {/* End Counts Section */}
-
-
-
-
 
         {/* ======= Categories Section ======= */}
         <section id="features" className="features">
           <div className="text-center m-4 ">
             <h3>Courses Categories</h3>
-          
+
             <div className="input-group rounded"></div>
           </div>
           <div className="container">
@@ -152,7 +159,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#e361ff" }}
                   />
                   <h3>
-                    {!path ? <a href="/Courses_Art" onClick={handleclick}>Arts and Crafts</a> :  <a href="/Login" >Arts and Crafts</a>}
+                    {!path ? (
+                      <a href="/Courses_Art" onClick={handleclick}>
+                        Arts and Crafts
+                      </a>
+                    ) : (
+                      <a href="/Login">Arts and Crafts</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -163,7 +176,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#ff5828" }}
                   />
                   <h3>
-                  {!path ? <a href="/Courses_Tech" onClick={handleclick}>Technology</a> :  <a href="/Login" >Technology</a>}
+                    {!path ? (
+                      <a href="/Courses_Tech" onClick={handleclick}>
+                        Technology
+                      </a>
+                    ) : (
+                      <a href="/Login">Technology</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -174,7 +193,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#e80368" }}
                   />
                   <h3>
-                  {!path ? <a href="/Courses_Health" onClick={handleclick}>Health</a> :  <a href="/Login" >Health</a>}
+                    {!path ? (
+                      <a href="/Courses_Health" onClick={handleclick}>
+                        Health
+                      </a>
+                    ) : (
+                      <a href="/Login">Health</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -185,7 +210,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#b2904f" }}
                   />
                   <h3>
-                  {!path ? <a href="/Courses_Sports" onClick={handleclick}>Sports</a> :  <a href="/Login" >Sports</a>}
+                    {!path ? (
+                      <a href="/Courses_Sports" onClick={handleclick}>
+                        Sports
+                      </a>
+                    ) : (
+                      <a href="/Login">Sports</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -196,7 +227,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#47aeff" }}
                   />
                   <h3>
-                  {!path ? <a href="/Courses_Sciences" onClick={handleclick}>Sciences</a> :  <a href="/Login" >Sciences</a>}
+                    {!path ? (
+                      <a href="/Courses_Sciences" onClick={handleclick}>
+                        Sciences
+                      </a>
+                    ) : (
+                      <a href="/Login">Sciences</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -207,7 +244,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#5578ff" }}
                   />
                   <h3>
-                  {!path ? <a href="/Courses_Business" onClick={handleclick}>Business</a> :  <a href="/Login" >Business</a>}
+                    {!path ? (
+                      <a href="/Courses_Business" onClick={handleclick}>
+                        Business
+                      </a>
+                    ) : (
+                      <a href="/Login">Business</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -218,7 +261,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#11dbcf" }}
                   />
                   <h3>
-                  {!path ? <a href="/Courses_Languages" onClick={handleclick}>Languages</a> :  <a href="/Login" >Languages</a>}
+                    {!path ? (
+                      <a href="/Courses_Languages" onClick={handleclick}>
+                        Languages
+                      </a>
+                    ) : (
+                      <a href="/Login">Languages</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -226,7 +275,13 @@ const [path, setPath] = useState(false)
                 <div className="icon-box">
                   <i className="ri-markup-fill" style={{ color: "#4233ff" }} />
                   <h3>
-                  {!path ? <a href="/Courses_Beauty" onClick={handleclick}>Beauty</a> :  <a href="/Login" >Beauty</a>}
+                    {!path ? (
+                      <a href="/Courses_Beauty" onClick={handleclick}>
+                        Beauty
+                      </a>
+                    ) : (
+                      <a href="/Login">Beauty</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -237,7 +292,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#ffa76e" }}
                   />
                   <h3>
-                  {!path ? <a href="/Courses_Cooking" onClick={handleclick}>Cooking</a> :  <a href="/Login" >Cooking</a>}
+                    {!path ? (
+                      <a href="/Courses_Cooking" onClick={handleclick}>
+                        Cooking
+                      </a>
+                    ) : (
+                      <a href="/Login">Cooking</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -246,7 +307,13 @@ const [path, setPath] = useState(false)
                 <div className="icon-box">
                   <i className=" ri-earth-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                  {!path ? <a href="/Courses_Agriculture" onClick={handleclick}>Agriculture</a> :  <a href="/Login" >Agriculture</a>}
+                    {!path ? (
+                      <a href="/Courses_Agriculture" onClick={handleclick}>
+                        Agriculture
+                      </a>
+                    ) : (
+                      <a href="/Login">Agriculture</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -254,7 +321,13 @@ const [path, setPath] = useState(false)
                 <div className="icon-box">
                   <i className="ri-disc-line" style={{ color: "#b20969" }} />
                   <h3>
-                  {!path ? <a href="/Courses_Music" onClick={handleclick}>Music</a> :  <a href="/Login" >Music</a>}
+                    {!path ? (
+                      <a href="/Courses_Music" onClick={handleclick}>
+                        Music
+                      </a>
+                    ) : (
+                      <a href="/Login">Music</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -265,7 +338,13 @@ const [path, setPath] = useState(false)
                     style={{ color: "#29cc61" }}
                   />
                   <h3>
-                  {!path ? <a href="/Others" onClick={handleclick}>Others</a> :  <a href="/Login" >Others</a>}
+                    {!path ? (
+                      <a href="/Others" onClick={handleclick}>
+                        Others
+                      </a>
+                    ) : (
+                      <a href="/Login">Others</a>
+                    )}
                   </h3>
                 </div>
               </div>
@@ -276,113 +355,44 @@ const [path, setPath] = useState(false)
 
 
 
+
         {/* ======= Trainers Section ======= */}
-        <section id="trainers" className="trainers">
+
+        
+
+        
+        {/* <section id="trainers" className="trainers"> */}
+        {courses.length > 0 && courses.map((ele)=>{
+              
           <div className="container">
-            <div className="row" >
+            <div className="row">
+            
               <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div className="member">
-                  <img
+                  {/* <img
                     src="assets/img/trainers/trainer-1.jpg"
                     className="img-fluid"
                     alt=""
-                  />
+                  /> */}
                   <div className="member-content">
-                    <h4>Walter White</h4>
-                    <span>Web Development</span>
+                    <h4>{ele.name}</h4>
+                    <span>Description</span>
                     <p>
-                      Magni qui quod omnis unde et eos fuga et exercitationem.
-                      Odio veritatis perspiciatis quaerat qui aut aut aut
+                      {ele.description}
                     </p>
-                    <div className="social">
-                      <a href="">
-                        <i className="bi bi-twitter" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-facebook" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-instagram" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-linkedin" />
-                      </a>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
-                <div className="member">
-                  <img
-                    src="assets/img/trainers/trainer-2.jpg"
-                    className="img-fluid"
-                    alt=""
-                  />
-                  <div className="member-content">
-                    <h4>Sarah Jhinson</h4>
-                    <span>Marketing</span>
-                    <p>
-                      Repellat fugiat adipisci nemo illum nesciunt voluptas
-                      repellendus. In architecto rerum rerum temporibus
-                    </p>
-                    <div className="social">
-                      <a href="">
-                        <i className="bi bi-twitter" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-facebook" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-instagram" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-linkedin" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
-                <div className="member">
-                  <img
-                    src="assets/img/trainers/trainer-3.jpg"
-                    className="img-fluid"
-                    alt=""
-                  />
-                  <div className="member-content">
-                    <h4>William Anderson</h4>
-                    <span>Content</span>
-                    <p>
-                      Voluptas necessitatibus occaecati quia. Earum totam
-                      consequuntur qui porro et laborum toro des clara
-                    </p>
-                    <div className="social">
-                      <a href="">
-                        <i className="bi bi-twitter" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-facebook" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-instagram" />
-                      </a>
-                      <a href="">
-                        <i className="bi bi-linkedin" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div> 
           </div>
-        </section>
+        
+        })}
+        {/* </section> */}
+       
         {/* End Trainers Section */}
-
-
       </main>
       {/* End #main */}
-
-
 
       <Footer />
     </>
