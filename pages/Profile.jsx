@@ -52,17 +52,18 @@ const Profile = () => {
   }, []);
   return (
     <>
-      <link
+  <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet"
       />
-
-      <link
+      
+<link
         href="assets/vendor/bootstrap/css/bootstrap.min.css"
         rel="stylesheet"
       />
-
-      <link href="assets/css/style.css" rel="stylesheet" />
+      
+<link href="assets/css/style.css" rel="stylesheet" />
+      
 
       <Navbar />
 
@@ -82,15 +83,15 @@ const Profile = () => {
                     />
 
                     <span className="text-black-50">{userData[0]?.email}</span>
-
-                    <Link href="/ProfileEdit">
+                    <div> <Link href="/ProfileEdit">
                       <button
                         className="btn btn-primary profile-button"
                         type="submit"
                       >
                         Edit Profile
                       </button>
-                    </Link>
+                    </Link></div>
+                   
                     <span> </span>
                   </div>
                 </div>

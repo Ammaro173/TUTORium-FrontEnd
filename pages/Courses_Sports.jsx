@@ -13,17 +13,17 @@ const Courses = () => {
   const [curr, setCurr] = useState([]);
   const [CourseData, setCoursesData] = useState([]);
 
-  // search bar
-  const [data, setData] = useState([]);
-  const [value, setValue] = useState("");
+  // // search bar
+  // const [data, setData] = useState([]);
+  // const [value, setValue] = useState("");
 
-  // search bar
-  const handelSearch = async (e) => {
-    e.preventDefault();
-    return await axios.get(`?q=${value}`).then((response) => {
-      setData(response.data), setValue("");
-    });
-  };
+  // // search bar
+  // const handelSearch = async (e) => {
+  //   e.preventDefault();
+  //   return await axios.get(`?q=${value}`).then((response) => {
+  //     setData(response.data), setValue("");
+  //   });
+  // };
 
   useEffect(() => {
     const storageToken = localStorage.getItem("access_token");
@@ -37,7 +37,7 @@ const Courses = () => {
         let arr = [];
         res.data.length > 0 &&
           res.data.map((ele) => {
-            if (ele.course_category === "Sports") {
+            if (ele.course_category === 11) {
               arr.push(ele);
             }
           });
@@ -86,7 +86,7 @@ const Courses = () => {
         {/* End Breadcrumbs */}
 
         {/* search bar form */}
-        <form
+        {/* <form
           className="form-inline d-flex justify-content-center md-form form-sm mt-3"
           style={{ width: "40vw", gap: "15px", margin: "auto" }}
         >
@@ -104,7 +104,7 @@ const Courses = () => {
             onClick={handelSearch}
             style={{ transform: "scale(1.2)" }}
           ></i>
-        </form>
+        </form> */}
 
         <section section id="courses" className="courses">
           <div className="container">
@@ -125,6 +125,7 @@ const Courses = () => {
                       <div className="course-content">
                         <div className="d-flex justify-content-between align-items-center mb-3">
                           <h3>
+                            <div>
                             <Link href="#courseDetails">
                               <a
                                 href="#courseDetails"
@@ -137,6 +138,7 @@ const Courses = () => {
                                 {ele.name}
                               </a>
                             </Link>
+                            </div>
                           </h3>
                           <p className="price">{ele.price}$</p>
                         </div>

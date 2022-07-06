@@ -108,17 +108,18 @@ const Login = () => {
 
   return (
     <>
-      <link
+    <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet"
       />
-
-      <link
+     
+<link
         href="assets/vendor/bootstrap/css/bootstrap.min.css"
         rel="stylesheet"
       />
-
-      <link href="assets/css/style.css" rel="stylesheet" />
+      
+<link href="assets/css/style.css" rel="stylesheet" />
+      
 
       <Navbar login={login} setLogin={setLogin} />
 
@@ -174,9 +175,10 @@ const Login = () => {
                   <div className="flex flex-col items-center py-1">
                     <p>
                       Join Us Now
+                      <div>
                       <Link href="/Register">
-                        <a className="m-1 ">Register here!</a>
-                      </Link>
+                        <a className="m-1 " href="/Register">Register here!</a>
+                      </Link></div>
                     </p>
                   </div>
                 </div>

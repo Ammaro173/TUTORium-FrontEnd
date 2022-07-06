@@ -9,18 +9,6 @@ const CourseDetails = ({ courses, id }) => {
   const [enrollCourse, setEnrolledCourses] = useState()
 
 
-  useEffect(()=>{
-    const mytoken = localStorage.getItem("access_token")
-    axios.put(`https://tutorium.herokuapp.com/api/visitor-rud/${id}`, {
-      headers: {
-        Authorization : ` Bearer ${mytoken}`,
-      },
-    }).then((res)=>{
-      console.log(res, "the course is enrolled")
-    }).catch((err)=>{
-      console.log(err)
-    })
-  })
 
   console.log("hiiiiiiii", courses[id]);
   return (
@@ -84,7 +72,7 @@ const CourseDetails = ({ courses, id }) => {
 
                   {/* check if enrolled, put the zoom link , else put enroll button */}
                   {isenrolled ? (
-                    <Link href="/zoomlink"></Link>
+                    <div><Link href="/zoomlink"></Link></div>
                   ) : (
                     <section className="about" style={{ padding: 10 }}>
                       <form

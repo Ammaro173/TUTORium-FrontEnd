@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 const Navbar = ({ login, setLogin }) => {
-
   const [isLoggedin, setIsLoggedin] = useState(login);
 
   let show = false;
@@ -14,16 +13,13 @@ const Navbar = ({ login, setLogin }) => {
 
   return (
     <header id="header" className="fixed-top">
-      <meta charSet="utf-8" />
-      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+     
+          <link
+            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+          />
+        
 
-      <meta content="" name="description" />
-      <meta content="" name="keywords" />
-
-      <link
-        href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-        rel="stylesheet"
-      />
       {/* <Courses curr={curr} /> */}
 
       <div
@@ -37,32 +33,40 @@ const Navbar = ({ login, setLogin }) => {
         <nav id="navbar" className="navbar order-last order-lg-0">
           <ul>
             <li>
-              <Link className="active" href="/Home">
-                Home
-              </Link>
+              <div>
+                <Link className="active" href="/Home">
+                  Home
+                </Link>
+              </div>
             </li>
-            <li>
-              <Link href="/Profile">Profile</Link>
-            </li>
+            {isLoggedin ? (
+              <li>
+                <div>
+                  <Link href="/Profile">Profile</Link>
+                </div>
+              </li>
+            ) : null}
 
             <li
               className="dropdown"
               style={{ cursor: "pointer", marginLeft: "30px", fontWeight: 510 }}
             >
-              <Link href="#">
-                <div>
-                  Categories <i className="bi bi-chevron-down" />
-                </div>
-              </Link>
+              <div>
+                <Link href="#">
+                  Categories
+                </Link>
+              </div>
               <ul>
                 <li>
-                  <Link href="/Courses_Art"><a
-                    href="/Courses_Art"
-                    name="Arts and Crafts"
-                    onClick={(e) => setCurr(e.target.name)}
-                  >
-                    Arts and Crafts
-                    </a></Link>
+                  <Link href="/Courses_Art">
+                    <a
+                      href="/Courses_Art"
+                      name="Arts and Crafts"
+                      onClick={(e) => setCurr(e.target.name)}
+                    >
+                      Arts and Crafts
+                    </a>
+                  </Link>
                 </li>
 
                 <li>
@@ -112,16 +116,18 @@ const Navbar = ({ login, setLogin }) => {
                 </li>
               </ul>
             </li>
-            <li>
-              <Link href="/Contact">Contact</Link>
-            </li>
+            {isLoggedin ? (
+              <li>
+                <Link href="/Contact">Contact</Link>
+              </li>
+            ) : null}
           </ul>
           <i className="bi bi-list mobile-nav-toggle dropdown" />
         </nav>
 
         {isLoggedin ? (
           <div>
-            <Link href="/Logout" className="get-started-btn" >
+            <Link href="/Logout" className="get-started-btn">
               Logout
             </Link>
           </div>

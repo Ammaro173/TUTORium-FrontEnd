@@ -42,24 +42,24 @@ const Courses = () => {
 
 
 
-    // search bar
-    const [data, setData] = useState([]);
-    const [value, setValue] = useState("");
+    // // search bar
+    // const [data, setData] = useState([]);
+    // const [value, setValue] = useState("");
   
-    // search bar
-    const handelSearch = async (e) => {
-      e.preventDefault();
-      const storageToken = localStorage.getItem("access_token");
-      return axios.get(`http://tutorium.herokuapp.com/api/courses?q=${value}`, {
-        headers: {
-          Authorization: `Bearer ${storageToken}`,
-        },
-      }).then((response) => {
-        setData(response.data), setValue("");
-        console.log(response.data);
-      });
+    // // search bar
+    // const handelSearch = async (e) => {
+    //   e.preventDefault();
+    //   const storageToken = localStorage.getItem("access_token");
+    //   return axios.get(`http://tutorium.herokuapp.com/api/courses?q=${value}`, {
+    //     headers: {
+    //       Authorization: `Bearer ${storageToken}`,
+    //     },
+    //   }).then((response) => {
+    //     setData(response.data), setValue("");
+    //     console.log(response.data);
+    //   });
       
-    };
+    // };
 
 
 
@@ -100,7 +100,7 @@ const Courses = () => {
         {/* End Breadcrumbs */}
 
         {/* search bar form */}
-        <form
+        {/* <form
           className="form-inline d-flex justify-content-center md-form form-sm mt-3"
           style={{ width: "40vw", gap: "15px", margin: "auto" }}
         >
@@ -118,7 +118,7 @@ const Courses = () => {
             onClick={handelSearch}
             style={{ transform: "scale(1.2)" }}
           ></i>
-        </form>
+        </form> */}
 
         <section section id="courses" className="courses">
           <div className="container">
