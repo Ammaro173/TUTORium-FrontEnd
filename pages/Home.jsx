@@ -90,10 +90,10 @@ const Home = () => {
             Welcome To TUTORium, <br /> Where You Can Learn Or Teach Anything!
           </h2>
           <div>
-            <Link href="/#features">
-              <a href="/#features" className="btn-get-started">
+            <Link href="/#features" >
+              
                 Get Started!
-              </a>
+              
             </Link>
           </div>
         </div>

@@ -80,7 +80,7 @@ const CourseDetails = ({ courses, id }) => {
                         onSubmit={(e) => {
                           e.preventDefault();
                           alert("Booked");
-                          enrollCourse.enrolled_courses.push(courses[id].name)
+                         
                         }}
                       >
                         <div className="text-center ">
