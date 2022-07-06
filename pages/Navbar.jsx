@@ -41,9 +41,11 @@ const Navbar = ({ login, setLogin }) => {
                 Home
               </Link>
             </li>
-            <li>
+            {isLoggedin? <li>
+              
               <Link href="/Profile">Profile</Link>
-            </li>
+            </li> : null}
+            
 
             <li
               className="dropdown"
@@ -112,9 +114,10 @@ const Navbar = ({ login, setLogin }) => {
                 </li>
               </ul>
             </li>
-            <li>
+            {isLoggedin? <li>
               <Link href="/Contact">Contact</Link>
-            </li>
+            </li> : null}
+            
           </ul>
           <i className="bi bi-list mobile-nav-toggle dropdown" />
         </nav>
