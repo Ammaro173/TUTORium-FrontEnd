@@ -125,18 +125,15 @@ const Courses = () => {
                       <div className="course-content">
                         <div className="d-flex justify-content-between align-items-center mb-3">
                           <h3>
-                            <Link href="#courseDetails">
-                              <a
-                                href="#courseDetails"
-                                onClick={() => {
+                            <div onClick={() => {
                                   setCurr(ele);
                                   setShow(true);
                                   setId(ele.id);
-                                }}
-                              >
-                                {ele.name}
-                              </a>
-                            </Link>
+                                }}> 
+                            <Link href="#courseDetails">
+                            {ele.name}
+                              
+                            </Link></div>
                           </h3>
                           <p className="price">{ele.price}$</p>
                         </div>

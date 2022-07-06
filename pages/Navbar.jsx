@@ -57,31 +57,24 @@ const Navbar = ({ login, setLogin }) => {
                 </Link>
               </div>
               <ul>
-                <li>
+                <li name="Arts and Crafts"
+                      onClick={(e) => setCurr(e.target.name)}>
                   <Link href="/Courses_Art">
-                    <a
-                      href="/Courses_Art"
-                      name="Arts and Crafts"
-                      onClick={(e) => setCurr(e.target.name)}
-                    >
+                    
                       Arts and Crafts
-                    </a>
+                    
                   </Link>
                 </li>
 
-                <li>
-                  <Link href="/Courses_Tech">
-                    <a
-                      href="/Courses_Tech"
-                      type="submit"
-                      name="Technology"
+                <li name="Technology"
                       onClick={(e) => {
                         setCurr(e.target.name);
                         console.log(curr);
-                      }}
-                    >
+                      }}>
+                  <Link href="/Courses_Tech">
+                    
                       Technology
-                    </a>
+                    
                   </Link>
                 </li>
                 <li>

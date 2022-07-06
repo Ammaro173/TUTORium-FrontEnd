@@ -177,7 +177,7 @@ const Login = () => {
                       Join Us Now
                       <div>
                       <Link href="/Register">
-                        <a className="m-1 " href="/Register">Register here!</a>
+                      Register here!
                       </Link></div>
                     </p>
                   </div>
